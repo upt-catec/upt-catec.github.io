@@ -1,0 +1,22 @@
+{
+    "ponentes":[
+        {
+            "nombre":"Ing. Juan Dávila",
+            "avatar":"assets/images/speakers/speaker-6.jpg",
+            "linkedin":"#",
+            "twitter":"#"
+        },
+        {
+            "nombre":"Lic. Lautaro Carro",
+            "avatar":"assets/images/speakers/speaker-9.jpg",
+            "linkedin":"#",
+            "twitter":"#"
+        },
+        {
+            "nombre":"Ing. Joel Ibaceta",
+            "avatar":"assets/images/speakers/speaker-8.jpg",
+            "linkedin":"#",
+            "twitter":"#"
+        }
+    ]
+}
