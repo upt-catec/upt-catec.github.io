@@ -1,0 +1,19 @@
+{
+  "name": "catec",
+  "version": "1.0.0",
+  "description": "Proyecto Catec",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/upt-catec/upt-catec.github.io.git"
+  },
+  "author": "Taller de liderazgo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/upt-catec/upt-catec.github.io/issues"
+  },
+  "homepage": "https://github.com/upt-catec/upt-catec.github.io#readme"
+}
