@@ -78,7 +78,9 @@ a.theme-link {
 .theme-bg-primary {
 	background: $theme-bg-primary;
 }
-
+.theme-bg-secondary {
+	background: $theme-bg-secondary;
+}
 #topcontrol {
     @include transition (all 0.4s ease-in-out);
     background: $theme-text-color-secondary;

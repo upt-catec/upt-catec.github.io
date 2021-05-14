@@ -1,5 +1,4 @@
 /* Header */
-
 .header {
 	padding-top: 0.5rem;
 	padding-bottom: 0.5rem;
@@ -435,23 +434,21 @@
 			
 		}
 		&.figure-1 {
-			z-index: 1;
-			@include scale(1.1);
+			//z-index: 1;
+			//@include scale(1.1);
 		}
 		&.figure-2 {
-			@include rotate(2);
-			z-index: 2;
-			
-			
+			//@include rotate(2);
+			//z-index: 2;
 		}
 		&.figure-3 {
-			@include rotate(358);
-			z-index: 3;
-			margin-top: -2rem;
+		//	@include rotate(358);
+			//z-index: 3;
+			//margin-top: -2rem;
 		}
 		&.figure-4 {
-			z-index: 3;
-			@include scale(1.1);
+			//z-index: 3;
+			//@include scale(1.1);
 		}
 	}
 	.grid-item {
@@ -525,11 +522,11 @@
 	}
 	
 
-	.venue-section  .figures-holder {
+	/*.venue-section  .figures-holder {
 		position: absolute;
 		top: 0;
 		right: 0;
-	}
+	}*/
 	
 }
 

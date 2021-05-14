@@ -1,12 +1,13 @@
 /*************************** Theme Colours****************************/
 // Define theme colour scheme
-$theme-color-primary: #3cc0f0;
-$theme-color-secondary: #e6007e;
+$theme-color-primary: #7a3277;
+$theme-color-secondary: #562354;
 $theme-text-color-primary: #141c25;
 $theme-text-color-secondary: lighten($theme-text-color-primary, 25%);
 $theme-text-color-light: lighten($theme-text-color-primary, 40%);
 $theme-bg-light: #f0f6fa;
 $theme-bg-primary: $theme-color-primary;
+$theme-bg-secondary: $theme-color-secondary;
 $theme-bg-dark: $theme-text-color-primary;
 $theme-border-color:  #e5ecf4;
 $theme-color-tick: #5ab66e;
