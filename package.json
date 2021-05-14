@@ -4,7 +4,8 @@
   "description": "Proyecto Catec",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss": "node-sass --watch ./assets/scss/theme.scss -o ./assets/css/"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/upt-catec/upt-catec.github.io/issues"
   },
-  "homepage": "https://github.com/upt-catec/upt-catec.github.io#readme"
+  "homepage": "https://github.com/upt-catec/upt-catec.github.io#readme",
+  "dependencies": {
+    "node-sass": "^6.0.0"
+  }
 }
