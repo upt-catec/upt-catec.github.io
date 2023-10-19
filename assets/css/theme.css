@@ -3174,7 +3174,8 @@ input[type="button"].btn-block {
       flex-wrap: nowrap; }
     .navbar-expand-lg .navbar-collapse {
       display: flex !important;
-      flex-basis: auto; }
+      flex-basis: auto;
+    }
     .navbar-expand-lg .navbar-toggler {
       display: none; } }
 
@@ -7300,6 +7301,12 @@ a.theme-link {
 
   color: #fff;
   padding: 10px 0;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999999; /* Asegura que esté por encima de otros elementos */
 }
 @keyframes gradient {
   0% {
