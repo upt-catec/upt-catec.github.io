@@ -48,7 +48,7 @@
 							<li class="nav-item"><a class="nav-link scrollto" href="#tickets-section">Registrarse</a></li>
 							<li class="nav-item"><a class="nav-link scrollto" href="#venue-section">Antecedentes</a></li>
 							<li class="nav-item"><a class="nav-link scrollto" href="#sponsors-section">Patrocinadores</a></li>
-							<li class="nav-item"><a class="nav-link scrollto" href="#">Certificados</a></li>
+							<li class="nav-item"><a class="nav-link scrollto" href="#asistencia-section">Asistencia</a></li>
 						</ul>
 						<!--//nav-->
 					</div>
@@ -63,10 +63,24 @@
 		<!--//branding-->
 	</header>
 	<!--//header-->
-
 	<!-- <div id="hero-block" class="hero-block"> -->
-		<img src="assets/images/catec-2023-ii.png" class="img-fluid" alt="Responsive image">
-
+		<!-- https://vimeo.com/877124710?share=copy#t=0 -->
+		<div class="container-fluid p-0">
+			<!-- Agrega una clase "video-container" para crear un contenedor responsive -->
+			<div class="embed-responsive video-container">
+			  <!-- Agrega tu iframe de Vimeo con las opciones que necesitas -->
+			  <video id="video" autoplay muted controls>
+				<source src="assets/video/video.mp4" type="video/mp4">
+			</div>
+		  </div>
+		
+		<!-- <img src="assets/images/catec-2023-ii.png" class="img-fluid" alt="Responsive image"> -->
+		<script>
+			document.addEventListener("DOMContentLoaded", function () {
+			  var video = document.getElementById("video");
+			  video.play(); // Reproduce el video automáticamente al cargar la página
+			});
+		  </script>
 	<!-- </div> -->
 	<!--//hero-block-->
 
@@ -1272,419 +1286,140 @@
 				</div>
 			</div>
 		</div>
-		
-		
-		<!-- <div class="container">
-			<h3 class="section-heading text-center mb-3">Registrarse</h3>
+	</section>
+	<section id="asistencia-section" class="venue-section section text-center">
+		<div class="container">
+			<br>
+			<h1 class="section-heading mb-3" style="color: #3F2A8C;">Asistencia</h1>
 			<div class="section-intro single-col-max mx-auto text-center mb-4">Recuerda que el registro de los participantes solo estara Abierto por 40 min por cada ponencia en sus fechas y horarios respectivos.</div>
-
-			<div class="row pricing mb-5">
-
-				<div class="col-12 col-md-4 p-2 p-lg-4">
-					<div class="card rounded-0 border-0">
-						<div class="card-body p-0">
-							<div class="heading  text-center p-3">
-								<h4 class="text-white mb-0">Formulario 01</h4>
-							</div>
-							<div class="info p-3">
-								<div class="price-figure text-center mb-3"><span class="currency">29/05/2023</div>
-								<div class="desc mb-0 text-center"><span class="">17:15 - 18:15 PM</div>
-								<div class="desc px-3 text-center">
-									Clean Architecture en Android 
-								</div>
-							</div>
+			<div class="row">
+				<div class="col-md-4 col-sm-12">
+					<div id="border-card" class="card" style="width: 18rem;">
+						<img src="assets/images/flags/bitcoint.jpg" class="card-img-top" alt="...">
+						<div  class="card-body">
+							<h5 class="card-title" style="color: #3F2A8C;">Asistencia</h5>
+							<p class="card-text">1ra Ponencia: Bitcoin: Disrupción tecnológica <br>
+								<strong>23 de octubre	17:20 – 18:15</strong>
+							</p>
+								<a href="https://docs.google.com/forms/d/e/1FAIpQLSdbo53FYAMcSaZMFZCN2f6cI-Snu0EV6v5qgLg3_2rQXYugMg/viewform?usp=sf_link" class="btn btn-primary">Registrar</a>
 						</div>
-						<div class="card-footer text-center">
-							<div class="row justify-content-center">
-								<a href="https://forms.gle/ierjdzp76kAfmewp8"
-								class="btn btn-primary" target="_blank">INGRESAR</a>
-							  </div>
-
-						</div>
-						<hr>
-						<div class="text-center">
-							  <div class="row justify-content-center">
-								<div class="desc mb-0 text-center"><span class="">Ver Ponencia</div>	
-							  </div>
-						
-							  <ul class="social-list list-inline mb-3">
-								<li class="list-inline-item"><a href="https://www.youtube.com/watch?v=y8WXxVTtuAU" target="_blank" ><i class="fab fa-youtube fa-fw" ></i></a></li>
-								<li class="list-inline-item"><a href="https://fb.me/e/NoQycvfv" target="_blank" ><i class="fab fa-facebook fa-fw"></i></a></li>
-							</ul>
-	
-						</div>
-					
-
-					</div>
+					  </div>
 				</div>
-
-				<div class="col-12 col-md-4 p-2 p-lg-4">
-					<div class="card rounded-0 border-0">
-						<div class="card-body p-0">
-							<div class="heading  text-center p-3">
-								<h4 class="text-white mb-0">Formulario 02</h4>
-							</div>
-							<div class="info p-3">
-								<div class="price-figure text-center mb-3"><span class="currency">29/05/2023</div>
-									<div class="desc mb-0 text-center"><span class="">18:30 - 19:30 PM</div>
-								<div class="desc px-3 text-center">
-									Uso de la inteligencia artificial para detectar incidencias de ciberseguridad  
-								</div>
-							</div>
+				<div class="col-md-4 col-sm-12">
+					<div id="border-card" class="card" style="width: 18rem;">
+						<img src="assets/images/flags/cloud_computing.jpg" class="card-img-top" alt="...">
+						<div  class="card-body">
+						  <h5 class="card-title" style="color: #3F2A8C;">Asistencia</h5>
+						  <p class="card-text">2da Ponencia: Cloud Computing y la transformación digital <br>
+							<strong>23 de octubre	18: 30 – 19: 30</strong>
+						</p>
+						  <a href="https://docs.google.com/forms/d/e/1FAIpQLSerS6c1tyR5vWq8D92KX5ukKOl9HCK1LKpPfdVU6mszL6cYzw/viewform?usp=sf_link" class="btn btn-primary">Registrar</a>
 						</div>
-						<div class="card-footer text-center">
-							<a href="https://forms.gle/43jgus7pqYEzu8mSA" class="btn btn-primary" target="_blank">INGRESAR</a>
-						</div>
-
-						<hr>
-						<div class="text-center">
-							  <div class="row justify-content-center">
-								<div class="desc mb-0 text-center"><span class="">Ver Ponencia</div>	
-							  </div>
-						
-							  <ul class="social-list list-inline mb-3">
-								<li class="list-inline-item"><a href="https://www.youtube.com/watch?v=y8WXxVTtuAU" target="_blank" ><i class="fab fa-youtube fa-fw" ></i></a></li>
-								<li class="list-inline-item"><a href="https://fb.me/e/NoQycvfv" target="_blank" ><i class="fab fa-facebook fa-fw"></i></a></li>
-							</ul>
-	
-						</div>
-						
-
-
-					</div>
+					  </div>
 				</div>
-
-				<div class="col-12 col-md-4 p-2 p-lg-4">
-					<div class="card rounded-0 border-0">
-						<div class="card-body p-0">
-							<div class="heading  text-center p-3">
-								<h4 class="text-white mb-0">Formulario 03</h4>
-							</div>
-							<div class="info p-3">
-								
-								<div class="price-figure text-center mb-3"><span class="currency">30/05/2023</div>
-								<div class="desc mb-0 text-center"><span class="">19:00 - 20:00 PM</div>
-								<div class="desc px-3 text-center">
-									IA for Business
-								</div>
-							</div>
+				<div class="col-md-4 col-sm-12">
+					<div id="border-card" class="card" style="width: 18rem;">
+						<img src="assets/images/flags/ciberseguridad.jpg" class="card-img-top" alt="...">
+						<div  class="card-body">
+						  <h5 class="card-title" style="color: #3F2A8C;">Asistencia</h5>
+						  <p class="card-text">3ra Ponencia: Ataques Cibernéticos usados en las Ciber Guerras <br>
+						<strong>24 de octubre	10:00 – 11:00
+						</strong></p>
+						  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfvRkW4e8jr20OQWaOI985uC4Qz4b2Voam6oxZkdScKf43BEQ/viewform?usp=sf_link" class="btn btn-primary">Registrar</a>
 						</div>
-						<div class="card-footer text-center">
-							<a href="https://forms.gle/8s14LsnjWoqegdR78"
-								class="btn btn-primary" target="_blank">INGRESAR</a>
-						</div>
-
-						<hr>
-						<div class="text-center">
-							  <div class="row justify-content-center">
-								<div class="desc mb-0 text-center"><span class="">Ver Ponencia</div>	
-							  </div>
-						
-							  <ul class="social-list list-inline mb-3">
-								<li class="list-inline-item"><a href="https://www.youtube.com/watch?v=MWTbFjqL858" target="_blank" ><i class="fab fa-youtube fa-fw" ></i></a></li>
-								<li class="list-inline-item"><a href="https://fb.me/e/2BfHlbAYE" target="_blank" ><i class="fab fa-facebook fa-fw"></i></a></li>
-							</ul>
-	
-						</div>
-
-
-					</div>
+					  </div>
 				</div>
-
-				<div class="col-12 col-md-4 p-2 p-lg-4">
-					<div class="card rounded-0 border-0">
-						<div class="card-body p-0">
-							<div class="heading  text-center p-3">
-								<h4 class="text-white mb-0">Formulario 04</h4>
-							</div>
-							<div class="info p-3">
-								<div class="price-figure text-center mb-3"><span class="currency">30/05/2023</div>
-									<div class="desc mb-0 text-center"><span class="">20:00 - 21:00 PM</div>
-								<div class="desc px-3 text-center">
-									De jugadores a creadores: revelando el arte del desarrollo de videojuegos 
-								</div>
-							</div>
-						</div>
-						<div class="card-footer text-center">
-							<a href="https://forms.gle/ZCkFp2QKhqYyAsqs6"
-								class="btn btn-primary" target="_blank">INGRESAR</a>
-						</div>
-
-						<hr>
-						<div class="text-center">
-							  <div class="row justify-content-center">
-								<div class="desc mb-0 text-center"><span class="">Ver Ponencia</div>	
-							  </div>
-						
-							  <ul class="social-list list-inline mb-3">
-								<li class="list-inline-item"><a href="https://www.youtube.com/watch?v=MWTbFjqL858" target="_blank" ><i class="fab fa-youtube fa-fw" ></i></a></li>
-								<li class="list-inline-item"><a href="https://fb.me/e/2BfHlbAYE" target="_blank" ><i class="fab fa-facebook fa-fw"></i></a></li>
-							</ul>
-	
-						</div>
-
-
-
-					</div>
-				</div>
-
-				<div class="col-12 col-md-4 p-2 p-lg-4">
-					<div class="card rounded-0 border-0">
-						<div class="card-body p-0">
-							<div class="heading  text-center p-3">
-								<h4 class="text-white mb-0">Formulario 05</h4>
-							</div>
-							<div class="info p-3">
-								<div class="price-figure text-center mb-3"><span class="currency">31/05/2023</div>
-								<div class="desc mb-0 text-center"><span class="">10:00 - 11:00 AM</div>
-								<div class="desc px-3 text-center">
-									Ataques con Efecto en Ciberdefensa e Infraestructura Crítica
-								</div>
-							</div>
-						</div>
-						<div class="card-footer text-center">
-							<a href="https://forms.gle/m922RfZkLCeiY6Az8"
-								class="btn btn-primary" target="_blank">INGRESAR</a>
-						</div>
-
-						<hr>
-						<div class="text-center">
-							  <div class="row justify-content-center">
-								<div class="desc mb-0 text-center"><span class="">Ver Ponencia</div>	
-							  </div>
-						
-							  <ul class="social-list list-inline mb-3">
-								<li class="list-inline-item"><a href="https://www.youtube.com/watch?v=4EGYkyr4AgI" target="_blank" ><i class="fab fa-youtube fa-fw" ></i></a></li>
-								<li class="list-inline-item"><a href="https://fb.me/e/3MEV6f1u1" target="_blank" ><i class="fab fa-facebook fa-fw"></i></a></li>
-							</ul>
-	
-						</div>
-
-
-
-					</div>
-				</div>
-
-				<div class="col-12 col-md-4 p-2 p-lg-4">
-					<div class="card rounded-0 border-0">
-						<div class="card-body p-0">
-							<div class="heading  text-center p-3">
-								<h4 class="text-white mb-0">Formulario 06</h4>
-							</div>
-							<div class="info p-3">
-								<div class="price-figure text-center mb-3"><span class="currency">31/05/2023</div>
-									<div class="desc mb-0 text-center"><span class="">17:00 - 18:00 PM</div>
-								<div class="desc px-3 text-center">
-									Informática Forense
-								</div>
-							</div>
-						</div>
-						<div class="card-footer text-center">
-							<a href="https://forms.gle/Wg8qSVCX6Mkh3Zm6A"
-								class="btn btn-primary" target="_blank">INGRESAR</a>
-						</div>
-
-						<hr>
-						<div class="text-center">
-							  <div class="row justify-content-center">
-								<div class="desc mb-0 text-center"><span class="">Ver Ponencia</div>	
-							  </div>
-						
-							  <ul class="social-list list-inline mb-3">
-								<li class="list-inline-item"><a href="https://www.youtube.com/watch?v=mGd8IK31Kak" target="_blank" ><i class="fab fa-youtube fa-fw" ></i></a></li>
-								<li class="list-inline-item"><a href="https://fb.me/e/31Y36rtx1" target="_blank" ><i class="fab fa-facebook fa-fw"></i></a></li>
-							</ul>
-	
-						</div>
-
-
-
-					</div>
-				</div>
-
-				<div class="col-12 col-md-4 p-2 p-lg-4">
-					<div class="card rounded-0 border-0">
-						<div class="card-body p-0">
-							<div class="heading  text-center p-3">
-								<h4 class="text-white mb-0">Formulario 07</h4>
-							</div>
-							<div class="info p-3">
-								<div class="price-figure text-center mb-3"><span class="currency">01/06/2023</div>
-									<div class="desc mb-0 text-center"><span class="">11:00 - 12:00 AM</div>
-								<div class="desc px-3 text-center">
-									IA Generativa: El nuevo paradigma!
-								</div>
-							</div>
-						</div>
-						<div class="card-footer text-center">
-							<a href="https://forms.gle/v8TroYeW4tbiLn6m8"
-								class="btn btn-primary" target="_blank">INGRESAR</a>
-						</div>
-
-						<hr>
-						<div class="text-center">
-							  <div class="row justify-content-center">
-								<div class="desc mb-0 text-center"><span class="">Ver Ponencia</div>	
-							  </div>
-						
-							  <ul class="social-list list-inline mb-3">
-								<li class="list-inline-item"><a href="https://www.youtube.com/watch?v=1pHhDIfcq2A" target="_blank" ><i class="fab fa-youtube fa-fw" ></i></a></li>
-								<li class="list-inline-item"><a href="https://fb.me/e/3uQNTMx4N" target="_blank" ><i class="fab fa-facebook fa-fw"></i></a></li>
-							</ul>
-	
-						</div>
-
-
-					</div>
-				</div>
-
-				<div class="col-12 col-md-4 p-2 p-lg-4">
-					<div class="card rounded-0 border-0">
-						<div class="card-body p-0">
-							<div class="heading  text-center p-3">
-								<h4 class="text-white mb-0">Formulario 08</h4>
-							</div>
-							<div class="info p-3">
-								<div class="price-figure text-center mb-3"><span class="currency">01/06/2023</div>
-								<div class="desc mb-0 text-center"><span class="">18:00 - 19:00 PM</div>
-								<div class="desc px-3 text-center">
-									Machine Learning
-								</div>
-							</div>
-						</div>
-						<div class="card-footer text-center">
-							<a href="https://forms.gle/XBjgKyavwPzk4BL58"
-								class="btn btn-primary"target="_blank">INGRESAR</a>
-						</div>
-
-						<hr>
-						<div class="text-center">
-							  <div class="row justify-content-center">
-								<div class="desc mb-0 text-center"><span class="">Ver Ponencia</div>	
-							  </div>
-						
-							  <ul class="social-list list-inline mb-3">
-								<li class="list-inline-item"><a href="https://www.youtube.com/watch?v=vYt8BWB4HsE" target="_blank" ><i class="fab fa-youtube fa-fw" ></i></a></li>
-								<li class="list-inline-item"><a href="https://fb.me/e/2NPnaTGsU" target="_blank" ><i class="fab fa-facebook fa-fw"></i></a></li>
-							</ul>
-	
-						</div>
-
-
-					</div>
-				</div>
-
-				<div class="col-12 col-md-4 p-2 p-lg-4">
-					<div class="card rounded-0 border-0">
-						<div class="card-body p-0">
-							<div class="heading  text-center p-3">
-								<h4 class="text-white mb-0">Formulario 09</h4>
-							</div>
-							<div class="info p-3">
-								<div class="price-figure text-center mb-3"><span class="currency">02/06/2023</div>
-								<div class="desc mb-0 text-center"><span class="">10:00 - 11:00 AM</div>
-								<div class="desc px-3 text-center">
-									Hacking OT
-								</div>
-							</div>
-						</div>
-						<div class="card-footer text-center">
-							<a href="https://forms.gle/pD6nY1apCEgprbbTA"
-								class="btn btn-primary"target="_blank">INGRESAR</a>
-						</div>
-
-						<hr>
-						<div class="text-center">
-							  <div class="row justify-content-center">
-								<div class="desc mb-0 text-center"><span class="">Ver Ponencia</div>	
-							  </div>
-						
-							  <ul class="social-list list-inline mb-3">
-								<li class="list-inline-item"><a href="https://www.youtube.com/watch?v=bMvL3TYnsyM" target="_blank" ><i class="fab fa-youtube fa-fw" ></i></a></li>
-								<li class="list-inline-item"><a href="https://fb.me/e/HVcMFwVB" target="_blank" ><i class="fab fa-facebook fa-fw"></i></a></li>
-							</ul>
-	
-						</div>
-
-
-					</div>
-				</div>
-				<div class="col-12 col-md-4 p-2 p-lg-4">
-					<div class="card rounded-0 border-0">
-						<div class="card-body p-0">
-							<div class="heading  text-center p-3">
-								<h4 class="text-white mb-0">Formulario 10</h4>
-							</div>
-							<div class="info p-3">
-								<div class="price-figure text-center mb-3"><span class="currency">02/06/2023</div>
-								<div class="desc mb-0 text-center"><span class="">16:30 - 17:30 PM</div>
-								<div class="desc px-3 text-center">
-									Que hay de nuevo en Microsoft SQL Server 2022 y la Nube
-								</div>
-							</div>
-						</div>
-						<div class="card-footer text-center">
-							<a href="https://forms.gle/bkQp6iUkYk1jCUhaA"
-								class="btn btn-primary"target="_blank">INGRESAR</a>
-						</div>
-
-						<hr>
-						<div class="text-center">
-							  <div class="row justify-content-center">
-								<div class="desc mb-0 text-center"><span class="">Ver Ponencia</div>	
-							  </div>
-						
-							  <ul class="social-list list-inline mb-3">
-								<li class="list-inline-item"><a href="https://www.youtube.com/watch?v=5k8YFUgXPzY" target="_blank" ><i class="fab fa-youtube fa-fw" ></i></a></li>
-								<li class="list-inline-item"><a href="https://fb.me/e/1l0ZkYTem" target="_blank" ><i class="fab fa-facebook fa-fw"></i></a></li>
-							</ul>
-	
-						</div>
-
-
-					</div>
-				</div>
-
-				<div class="col-12 col-md-4 p-2 p-lg-4">
-					<div class="card rounded-0 border-0">
-						<div class="card-body p-0">
-							<div class="heading  text-center p-3">
-								<h4 class="text-white mb-0">Formulario 11</h4>
-							</div>
-							<div class="info p-3">
-								<div class="price-figure text-center mb-3"><span class="currency">02/06/2023</div>
-								<div class="desc mb-0 text-center"><span class="">17:30 - 18:30 PM</div>
-								<div class="desc px-3 text-center">
-									Panel sobre los desafíos de la ciberseguridad en la era de la transformación digital.
-								</div>
-							</div>
-						</div>
-						<div class="card-footer text-center">
-							<a href="https://forms.gle/65qePaogbizj5cer5"
-								class="btn btn-primary"target="_blank">INGRESAR</a>
-						</div>
-
-						<hr>
-						<div class="text-center">
-							  <div class="row justify-content-center">
-								<div class="desc mb-0 text-center"><span class="">Ver Ponencia</div>	
-							  </div>
-						
-							  <ul class="social-list list-inline mb-3">
-								<li class="list-inline-item"><a href="https://www.youtube.com/watch?v=5k8YFUgXPzY" target="_blank" ><i class="fab fa-youtube fa-fw" ></i></a></li>
-								<li class="list-inline-item"><a href="https://fb.me/e/1l0ZkYTem" target="_blank" ><i class="fab fa-facebook fa-fw"></i></a></li>
-							</ul>
-	
-						</div>
-
-
-					</div>
-				</div>
-
 			</div>
-
-
-		</div> -->
+			<br>
+			<div class="row">
+				<div class="col-md-4 col-sm-12">
+					<div id="border-card" class="card" style="width: 18rem;">
+						<img src="assets/images/flags/criminologia-wide.jpg" class="card-img-top" alt="...">
+						<div  class="card-body">
+						  <h5 class="card-title" style="color: #3F2A8C;">Asistencia</h5>
+						  <p class="card-text">4ta Ponencia: GROOMING: Un análisis desde la Criminología <br>
+						<strong>24 de octubre	11:00 – 12:00
+						</strong></p>
+						  <a href="https://docs.google.com/forms/d/e/1FAIpQLSexhzx_lc3hPYhBonUtsRs5Y_hhpNqgwpgYoon59ZVYY5wOXw/viewform?usp=sf_link" class="btn btn-primary">Registrar</a>
+						</div>
+					  </div>
+				</div>
+				<div class="col-md-4 col-sm-12">
+					<div id="border-card" class="card" style="width: 18rem;">
+						<img src="assets/images/flags/machine.jpg" class="card-img-top" alt="...">
+						<div  class="card-body">
+						  <h5 class="card-title" style="color: #3F2A8C;">Asistencia</h5>
+						  <p class="card-text">5ta Ponencia: Impacto de la inteligencia artificial (IA) en la investigación científica <br>
+						<strong>24 de octubre	17:30 – 18:30
+						</strong></p>
+						  <a href="https://docs.google.com/forms/d/e/1FAIpQLSdvQfYF7r8TFp-kVoosW0Qk5riyOiDyDLlGqEOXA0oQibi8cg/viewform?usp=sf_link" class="btn btn-primary">Registrar</a>
+						</div>
+					  </div>
+				</div>
+				<div class="col-md-4 col-sm-12">
+					<div id="border-card" class="card" style="width: 18rem;">
+						<img src="assets/images/flags/tecnologia.jpg" class="card-img-top" alt="...">
+						<div  class="card-body">
+						  <h5 class="card-title" style="color: #3F2A8C;">Asistencia</h5>
+						  <p class="card-text">6ta Ponencia: IT y las posibilidades en el mercado laboral <br>
+						<strong>25 de octubre	10:00 – 11:00
+						</strong></p>
+						  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfZin0HHARwtMerw6svsksAEn0EVZVQ6OODMDrJ0yMUKDYthg/viewform?usp=sf_link" class="btn btn-primary">Registrar</a>
+						</div>
+					  </div>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col-md-4 col-sm-12">
+					<div id="border-card" class="card" style="width: 18rem;">
+						<img src="assets/images/flags/codigo.jpg" class="card-img-top" alt="...">
+						<div  class="card-body">
+						  <h5 class="card-title" style="color: #3F2A8C;">Asistencia</h5>
+						  <p class="card-text">7ma Ponencia: Cómo conseguir tu primer empleo como desarrollador <br>
+						<strong>25 de octubre	16:30 – 17:30
+						</strong></p>
+						  <a href="https://docs.google.com/forms/d/e/1FAIpQLSdi3ydHFrgKMAn5cFNEjkkrhdFcpcuqwTxJ8s50LOdDxqRNRw/viewform?usp=sf_link" class="btn btn-primary">Registrar</a>
+						</div>
+					  </div>
+				</div>
+				<div class="col-md-4 col-sm-12">
+					<div id="border-card" class="card" style="width: 18rem;">
+						<img src="assets/images/flags/Microservicios.jpg" class="card-img-top" alt="...">
+						<div  class="card-body">
+						  <h5 class="card-title" style="color: #3F2A8C;">Asistencia</h5>
+						  <p class="card-text">8va Ponencia: Patrones de Microservicios <br> <strong>27 de octubre	10:00 – 11:00
+						</strong></p>
+						  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfno0hrSRfmofOvJ7ImUuXF2Yi0WDbRIRfHOk_f3FdcXDIung/viewform?usp=sf_link" class="btn btn-primary">Registrar</a>
+						</div>
+					  </div>
+				</div>
+				<div class="col-md-4 col-sm-12">
+					<div id="border-card" class="card" style="width: 18rem;">
+						<img src="assets/images/flags/videojuegos.jpeg" class="card-img-top" alt="...">
+						<div  class="card-body">
+						  <h5 class="card-title" style="color: #3F2A8C;">Asistencia</h5>
+						  <p class="card-text">9na Ponencia: Los secretos detrás del desarrollo de videojuegos <br><strong>27 de octubre	17:00 – 18:00
+						</strong></p>
+						  <a href="https://docs.google.com/forms/d/e/1FAIpQLScgdG38irfyFrJNvtirnuyfCvrLECvwKp8b-iohD120zxyVNw/viewform?usp=sf_link" class="btn btn-primary">Registrar</a>
+						</div>
+					  </div>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col-md-4 col-sm-12">
+					<div id="border-card" class="card" style="width: 18rem;">
+						<img src="assets/images/flags/ciencia.jpg" class="card-img-top" alt="...">
+						<div  class="card-body">
+						  <h5 class="card-title" style="color: #3F2A8C;">Asistencia</h5>
+						  <p class="card-text">10ma Ponencia: Debate sobre la Investigacion</p>
+						  <a href="#" class="btn btn-primary">Registrar</a>
+						</div>
+					  </div>
+				</div>
+			</div>
+		</div>
 	</section>
 	<section id="venue-section" class="venue-section section text-white text-center ">
 		<h1 class="section-heading mb-3" style="color: #3F2A8C;">Antecedentes</h1>
@@ -1825,7 +1560,11 @@
 	<script src="assets/plugins/jquery.scrollTo.min.js"></script>
 	<script src="assets/js/main.js"></script>
 	<script src="assets/js/action.js"></script>
-
+	<script type="text/javascript">
+		document.addEventListener('contextmenu', function (e) {
+		  e.preventDefault();
+		});
+	  </script>
 </body>
 
 </html>

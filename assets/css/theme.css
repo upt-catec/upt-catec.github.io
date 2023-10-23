@@ -8105,3 +8105,47 @@ text-decoration:none;
 .profile-card-2:hover .profile-icons {
   right: 40px;
 }
+
+	/* Personaliza el estilo del contenedor */
+  .video-container {
+    position: relative;
+    padding-bottom: 50.25%; /* Establece la relación de aspecto 16:9 */
+    /* padding-top: 30px;  Opcional: espacio superior */
+    height: 0;
+    overflow: hidden;
+  }
+
+  .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .video-container video {
+    transform: scale(1.2); /* Ajusta el valor para cambiar el nivel de zoom */
+    transition: transform 0.5s ease; /* Agrega una transición suave */
+  }
+
+  #border-card{
+    border-radius: 10px 10px 10px 10px;
+    border: 1px solid  #3F2A8C;
+    color: #3F2A8C;
+    height: 100%;
+    
+  }
+
+  #border-card img{
+    border-radius: 10px 10px 0px 0px;
+    border: 1px solid  #3F2A8C;
+    height: 200px;
+    
+  }
+
+  @media (max-width: 767px) {
+    .card {
+      margin: 0 auto; /* Centra horizontalmente las tarjetas en dispositivos móviles */
+      margin-bottom: 20px; 
+    }
+  }
