@@ -7801,7 +7801,9 @@ a.theme-link {
   left: 50px;
   top: 50%;
   z-index: 1;
+
 }
+
 .main-timeline .inner-content{
   background-color: #fff;
   padding: 10px;
@@ -7906,6 +7908,7 @@ a.theme-link {
     position: absolute;
     top: 50%;
     z-index: 1;
+    transform: scale(1.5);
   }
   .main-timeline .timeline-content,
   .main-timeline .timeline:nth-child(even) .timeline-content{
