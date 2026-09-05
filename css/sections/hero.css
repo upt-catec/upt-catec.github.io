@@ -43,6 +43,48 @@
   background: rgba(var(--violet-rgb), 0.14);
 }
 
+.hero-sun {
+  position: absolute;
+  z-index: 0;
+  bottom: 46px;
+  left: 50%;
+  width: max(1080px, 168vw);
+  aspect-ratio: 1;
+  border: 1px solid rgba(var(--accent-rgb), 0.2);
+  background:
+    radial-gradient(circle at 50% 4%, rgba(var(--accent-rgb), 0.12), transparent 15%),
+    radial-gradient(circle at 34% 12%, rgba(var(--violet-rgb), 0.2), transparent 27%),
+    radial-gradient(circle at 68% 15%, rgba(var(--blue-rgb), 0.16), transparent 30%),
+    linear-gradient(180deg, #0b0a2a 0%, #06071c 20%, #01030c 56%);
+  border-radius: 50%;
+  box-shadow:
+    0 -2px 7px rgba(var(--accent-rgb), 0.2),
+    0 -14px 44px rgba(var(--blue-rgb), 0.12),
+    0 -38px 100px rgba(var(--violet-rgb), 0.1),
+    inset 0 3px 18px rgba(var(--accent-rgb), 0.06),
+    inset 0 40px 90px rgba(var(--violet-rgb), 0.08);
+  opacity: 0.94;
+  pointer-events: none;
+  transform: translate(-50%, 89%);
+}
+
+.hero-sun::after {
+  position: absolute;
+  border-radius: 50%;
+  content: "";
+  pointer-events: none;
+}
+
+.hero-sun::after {
+  top: -18px;
+  left: 50%;
+  width: min(44vw, 620px);
+  height: 46px;
+  background: rgba(var(--blue-rgb), 0.14);
+  filter: blur(28px);
+  transform: translateX(-50%);
+}
+
 .hero-hand {
   position: absolute;
   z-index: 1;
@@ -216,6 +258,17 @@
 @media (max-width: 760px) {
   .hero {
     padding-top: 104px;
+  }
+
+  .hero-sun {
+    bottom: 44px;
+    width: 1080px;
+    opacity: 0.86;
+    transform: translate(-50%, 91%);
+  }
+
+  .hero-sun::after {
+    width: 72vw;
   }
 
   .hero-hand {
