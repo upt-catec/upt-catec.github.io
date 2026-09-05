@@ -53,7 +53,7 @@ La primera versión funcional ya está creada e incluye:
 - `.github/workflows/deploy-pages.yml`: publicación automática.
 - `scripts/validate.mjs`: validación local.
 - `README.md`: instrucciones del proyecto.
-- `logo_catec.png`: logotipo proporcionado.
+- `assets/images/`: imágenes organizadas por marca, ponentes, patrocinadores y antecedentes.
 
 ## Validación
 
@@ -92,7 +92,7 @@ Antes de publicar e indexar se necesita confirmar:
 4. Añadir datos estructurados `Event` con fecha, lugar e inscripción reales.
 5. Decidir entre dominio propio y URL de GitHub Pages.
 6. Actualizar canonical, sitemap, robots, manifest y Open Graph si cambia el dominio.
-7. Hacer commit y push a la rama `main`.
+7. Hacer commit y push a la rama `master`, y crear un tag de versión para publicar.
 8. En GitHub, seleccionar `Settings → Pages → Source → GitHub Actions`.
 9. Verificar la web en Google Search Console y enviar el sitemap.
 10. Conseguir enlaces desde las redes oficiales y, si es posible, desde `upt.edu.pe`.

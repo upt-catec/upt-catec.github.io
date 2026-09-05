@@ -148,7 +148,7 @@
 .hero-art {
   position: relative;
   display: grid;
-  min-height: 540px;
+  min-height: 600px;
   place-items: center;
 }
 
@@ -170,7 +170,7 @@
   }
 
   .hero-art {
-    min-height: 420px;
+    min-height: 500px;
   }
 }
 
@@ -219,6 +219,6 @@
   }
 
   .hero-art {
-    min-height: 390px;
+    min-height: 430px;
   }
 }

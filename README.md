@@ -23,6 +23,12 @@ node scripts/validate.mjs
 El proyecto mantiene HTML, CSS y JavaScript vanilla, organizados por responsabilidad:
 
 ```text
+assets/
+└── images/
+    ├── antecedentes/  # Material visual de ediciones anteriores
+    ├── brand/         # Logotipos e identidad
+    ├── speakers/      # Fotografías de ponentes
+    └── sponsors/      # Logotipos de patrocinadores
 css/
 ├── base/          # Normalización de elementos HTML
 ├── components/    # Una hoja por componente visual reutilizable
@@ -44,7 +50,7 @@ encapsulados en un solo lugar.
 
 ## Publicación
 
-El flujo `.github/workflows/deploy-pages.yml` publica automáticamente el sitio cuando se envían cambios a la rama `main`.
+El flujo `.github/workflows/deploy-pages.yml` publica automáticamente el sitio al enviar un tag de versión como `v1.0.0`. También puede ejecutarse manualmente desde GitHub Actions.
 
 En GitHub se debe seleccionar **Settings → Pages → Source → GitHub Actions**.
 

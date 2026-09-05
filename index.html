@@ -15,7 +15,7 @@
     <meta name="color-scheme" content="dark" />
 
     <link rel="canonical" href="https://srg-cp.github.io/catec-epis/" />
-    <link rel="icon" type="image/png" href="./logo_catec.png" />
+    <link rel="icon" type="image/png" href="./assets/images/brand/logo-catec.png" />
     <link rel="manifest" href="./manifest.webmanifest" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_PE" />
@@ -26,7 +26,7 @@
       content="Tecnología, innovación y conocimiento desde la Escuela Profesional de Ingeniería de Sistemas de la Universidad Privada de Tacna."
     />
     <meta property="og:url" content="https://srg-cp.github.io/catec-epis/" />
-    <meta property="og:image" content="https://srg-cp.github.io/catec-epis/logo_catec.png" />
+    <meta property="og:image" content="https://srg-cp.github.io/catec-epis/assets/images/brand/logo-catec.png" />
     <meta property="og:image:alt" content="Logotipo oficial de CATEC 2026-II" />
 
     <meta name="twitter:card" content="summary_large_image" />
@@ -35,9 +35,10 @@
       name="twitter:description"
       content="Conoce la nueva edición de CATEC, el evento tecnológico organizado por estudiantes de Ingeniería de Sistemas de la UPT."
     />
-    <meta name="twitter:image" content="https://srg-cp.github.io/catec-epis/logo_catec.png" />
+    <meta name="twitter:image" content="https://srg-cp.github.io/catec-epis/assets/images/brand/logo-catec.png" />
 
-    <link rel="preload" href="./logo_catec.png" as="image" />
+    <link rel="preload" href="./assets/images/brand/logo-catec.png" as="image" />
+    <link rel="preload" href="./assets/images/brand/upt.png" as="image" />
     <link rel="stylesheet" href="./css/main.css" />
 
     <script type="application/ld+json">
@@ -62,7 +63,7 @@
             "url": "https://srg-cp.github.io/catec-epis/",
             "logo": {
               "@type": "ImageObject",
-              "url": "https://srg-cp.github.io/catec-epis/logo_catec.png"
+              "url": "https://srg-cp.github.io/catec-epis/assets/images/brand/logo-catec.png"
             },
             "parentOrganization": {
               "@type": "CollegeOrUniversity",
@@ -101,7 +102,7 @@
     <header class="site-header" data-header>
       <div class="container header-inner">
         <a class="brand" href="#inicio" aria-label="CATEC 2026-II, ir al inicio">
-          <img src="./logo_catec.png" width="1114" height="1485" alt="" />
+          <img src="./assets/images/brand/logo-catec.png" width="1114" height="1485" alt="" />
           <span>
             <strong>CATEC</strong>
             <small>2026-II</small>
@@ -140,7 +141,17 @@
 
         <div class="container hero-layout">
           <div class="hero-copy">
-            <p class="eyebrow"><span></span> Universidad Privada de Tacna · EPIS</p>
+            <p class="eyebrow">
+              <img
+                class="eyebrow-logo"
+                src="./assets/images/brand/upt.png"
+                width="600"
+                height="600"
+                alt=""
+                aria-hidden="true"
+              />
+              Universidad Privada de Tacna · EPIS
+            </p>
             <h1 id="hero-title">
               <span>CATEC</span>
               <strong>2026-II</strong>
@@ -182,23 +193,61 @@
             </dl>
           </div>
 
-          <div class="hero-art" aria-hidden="true">
-            <div class="orbit orbit-one"></div>
-            <div class="orbit orbit-two"></div>
-            <div class="tech-card">
-              <div class="tech-card-top">
-                <span>SYS.CATEC</span>
-                <span class="status-dot">EN DESARROLLO</span>
-              </div>
-              <div class="tech-mark">C</div>
-              <div class="tech-card-bottom">
-                <span>INNOVACIÓN</span>
-                <span>CONOCIMIENTO</span>
-                <span>COMUNIDAD</span>
-              </div>
+          <div class="hero-art">
+            <div
+              class="event-poster-rotator"
+              data-event-posters
+              data-direction="next"
+              role="region"
+              aria-roledescription="carrusel"
+              aria-label="Eventos destacados"
+              aria-describedby="event-posters-help"
+              tabindex="0"
+            >
+              <button
+                class="event-poster event-poster-contest is-active"
+                type="button"
+                data-event-poster
+                data-poster-name="Programming Contest"
+                aria-label="Mostrar Programming Contest"
+                aria-pressed="true"
+              >
+                <span class="event-poster-frame">
+                  <img
+                    src="./assets/images/antecedentes/programming-contest.png"
+                    alt=""
+                    width="509"
+                    height="720"
+                    draggable="false"
+                  />
+                </span>
+              </button>
+
+              <button
+                class="event-poster event-poster-seminar"
+                type="button"
+                data-event-poster
+                data-poster-name="Seminario Internacional"
+                aria-label="Mostrar Seminario Internacional"
+                aria-pressed="false"
+              >
+                <span class="event-poster-frame">
+                  <img
+                    src="./assets/images/antecedentes/seminario-internacional.png"
+                    alt=""
+                    width="2048"
+                    height="873"
+                    draggable="false"
+                  />
+                </span>
+              </button>
+
+              <span class="sr-only" id="event-posters-help">
+                Haz clic o arrastra la tarjeta principal para cambiar de evento. También puedes
+                usar las flechas izquierda y derecha del teclado.
+              </span>
+              <span class="sr-only" data-event-poster-status aria-live="polite"></span>
             </div>
-            <p class="coordinate coordinate-one">17.99° S</p>
-            <p class="coordinate coordinate-two">70.25° W</p>
           </div>
         </div>
 
@@ -251,7 +300,7 @@
               >
                 <article class="speaker-story-card speaker-story-card-violet" tabindex="0">
                   <div class="speaker-story-photo">
-                    <img src="./speaker-28.jpeg" width="200" height="200" alt="" loading="lazy" />
+                    <img src="./assets/images/speakers/speaker-28.jpeg" width="200" height="200" alt="" loading="lazy" />
                     <span aria-hidden="true">01</span>
                   </div>
                   <div class="speaker-story-copy">
@@ -283,7 +332,7 @@
               >
                 <article class="speaker-story-card speaker-story-card-blue" tabindex="0">
                   <div class="speaker-story-photo">
-                    <img src="./p4.jpg" width="414" height="529" alt="" loading="lazy" />
+                    <img src="./assets/images/speakers/p4.jpg" width="414" height="529" alt="" loading="lazy" />
                     <span aria-hidden="true">02</span>
                   </div>
                   <div class="speaker-story-copy">
@@ -315,7 +364,7 @@
               >
                 <article class="speaker-story-card speaker-story-card-cyan" tabindex="0">
                   <div class="speaker-story-photo">
-                    <img src="./p4.jpg" width="414" height="529" alt="" loading="lazy" />
+                    <img src="./assets/images/speakers/p4.jpg" width="414" height="529" alt="" loading="lazy" />
                     <span aria-hidden="true">03</span>
                   </div>
                   <div class="speaker-story-copy">
@@ -347,7 +396,7 @@
               >
                 <article class="speaker-story-card speaker-story-card-mint" tabindex="0">
                   <div class="speaker-story-photo">
-                    <img src="./p4.jpg" width="414" height="529" alt="" loading="lazy" />
+                    <img src="./assets/images/speakers/p4.jpg" width="414" height="529" alt="" loading="lazy" />
                     <span aria-hidden="true">04</span>
                   </div>
                   <div class="speaker-story-copy">
@@ -379,7 +428,7 @@
               >
                 <article class="speaker-story-card speaker-story-card-violet" tabindex="0">
                   <div class="speaker-story-photo">
-                    <img src="./p4.jpg" width="414" height="529" alt="" loading="lazy" />
+                    <img src="./assets/images/speakers/p4.jpg" width="414" height="529" alt="" loading="lazy" />
                     <span aria-hidden="true">05</span>
                   </div>
                   <div class="speaker-story-copy">
@@ -465,7 +514,7 @@
                 <article class="history-card" data-history-card aria-label="1 de 3">
                   <div class="history-media">
                     <img
-                      src="./images/antecedentes/seminario-internacional.png"
+                      src="./assets/images/antecedentes/seminario-internacional.png"
                       width="2048"
                       height="873"
                       alt="Afiche del Seminario Internacional CATEC 2026-I"
@@ -482,7 +531,7 @@
                 <article class="history-card" data-history-card aria-label="2 de 3">
                   <div class="history-media history-media-portrait">
                     <img
-                      src="./images/antecedentes/programming-contest.png"
+                      src="./assets/images/antecedentes/programming-contest.png"
                       width="509"
                       height="720"
                       alt="Afiche del VI Programming Contest de CATEC"
@@ -499,7 +548,7 @@
                 <article class="history-card history-card-identity" data-history-card aria-label="3 de 3">
                   <div class="history-media">
                     <img
-                      src="./logo_catec.png"
+                      src="./assets/images/brand/logo-catec.png"
                       width="1114"
                       height="1485"
                       alt="Logotipo de CATEC"
@@ -604,7 +653,7 @@
                 <span class="speaker-meridiem">AM</span>
               </time>
               <article class="speaker-card">
-                <img src="./speaker-28.jpeg" width="200" height="200" alt="" loading="lazy" />
+                <img src="./assets/images/speakers/speaker-28.jpeg" width="200" height="200" alt="" loading="lazy" />
                 <div class="speaker-details">
                   <span class="badge badge-accent">Grado académico por confirmar</span>
                   <h3>Nombre completo del ponente</h3>
@@ -644,7 +693,7 @@
                 <span class="speaker-meridiem">AM</span>
               </time>
               <article class="speaker-card">
-                <img src="./p4.jpg" width="414" height="529" alt="" loading="lazy" />
+                <img src="./assets/images/speakers/p4.jpg" width="414" height="529" alt="" loading="lazy" />
                 <div class="speaker-details">
                   <span class="badge badge-accent">Grado académico por confirmar</span>
                   <h3>Nombre completo del ponente</h3>
@@ -684,7 +733,7 @@
                 <span class="speaker-meridiem">AM</span>
               </time>
               <article class="speaker-card">
-                <img src="./p4.jpg" width="414" height="529" alt="" loading="lazy" />
+                <img src="./assets/images/speakers/p4.jpg" width="414" height="529" alt="" loading="lazy" />
                 <div class="speaker-details">
                   <span class="badge badge-accent">Grado académico por confirmar</span>
                   <h3>Nombre completo del ponente</h3>
@@ -724,7 +773,7 @@
                 <span class="speaker-meridiem">PM</span>
               </time>
               <article class="speaker-card">
-                <img src="./p4.jpg" width="414" height="529" alt="" loading="lazy" />
+                <img src="./assets/images/speakers/p4.jpg" width="414" height="529" alt="" loading="lazy" />
                 <div class="speaker-details">
                   <span class="badge badge-accent">Grado académico por confirmar</span>
                   <h3>Nombre completo del ponente</h3>
@@ -764,7 +813,7 @@
                 <span class="speaker-meridiem">PM</span>
               </time>
               <article class="speaker-card">
-                <img src="./p4.jpg" width="414" height="529" alt="" loading="lazy" />
+                <img src="./assets/images/speakers/p4.jpg" width="414" height="529" alt="" loading="lazy" />
                 <div class="speaker-details">
                   <span class="badge badge-accent">Grado académico por confirmar</span>
                   <h3>Nombre completo del ponente</h3>
@@ -860,15 +909,15 @@
               <div class="sponsor-track" data-sponsor-track>
                 <div class="sponsor-group">
                   <article class="sponsor-item">
-                    <img src="./patrocinadores3.png" width="1024" height="1024" alt="" loading="lazy" />
+                    <img src="./assets/images/sponsors/patrocinadores3.png" width="1024" height="1024" alt="" loading="lazy" />
                     <strong>La Trilogía del Sabor</strong>
                   </article>
                   <article class="sponsor-item">
-                    <img src="./patrocinadores4.png" width="1024" height="1024" alt="" loading="lazy" />
+                    <img src="./assets/images/sponsors/patrocinadores4.png" width="1024" height="1024" alt="" loading="lazy" />
                     <strong>Nutrifit</strong>
                   </article>
                   <article class="sponsor-item">
-                    <img src="./patrocinadores9.png" width="1024" height="1024" alt="" loading="lazy" />
+                    <img src="./assets/images/sponsors/patrocinadores9.png" width="1024" height="1024" alt="" loading="lazy" />
                     <strong>La Pronta Pizza</strong>
                   </article>
                 </div>
@@ -879,15 +928,15 @@
               <div class="sponsor-track" data-sponsor-track>
                 <div class="sponsor-group">
                   <article class="sponsor-item">
-                    <img src="./patrocinadores9.png" width="1024" height="1024" alt="" loading="lazy" />
+                    <img src="./assets/images/sponsors/patrocinadores9.png" width="1024" height="1024" alt="" loading="lazy" />
                     <strong>La Pronta Pizza</strong>
                   </article>
                   <article class="sponsor-item">
-                    <img src="./patrocinadores3.png" width="1024" height="1024" alt="" loading="lazy" />
+                    <img src="./assets/images/sponsors/patrocinadores3.png" width="1024" height="1024" alt="" loading="lazy" />
                     <strong>La Trilogía del Sabor</strong>
                   </article>
                   <article class="sponsor-item">
-                    <img src="./patrocinadores4.png" width="1024" height="1024" alt="" loading="lazy" />
+                    <img src="./assets/images/sponsors/patrocinadores4.png" width="1024" height="1024" alt="" loading="lazy" />
                     <strong>Nutrifit</strong>
                   </article>
                 </div>
@@ -898,15 +947,15 @@
               <div class="sponsor-track" data-sponsor-track>
                 <div class="sponsor-group">
                   <article class="sponsor-item">
-                    <img src="./patrocinadores4.png" width="1024" height="1024" alt="" loading="lazy" />
+                    <img src="./assets/images/sponsors/patrocinadores4.png" width="1024" height="1024" alt="" loading="lazy" />
                     <strong>Nutrifit</strong>
                   </article>
                   <article class="sponsor-item">
-                    <img src="./patrocinadores9.png" width="1024" height="1024" alt="" loading="lazy" />
+                    <img src="./assets/images/sponsors/patrocinadores9.png" width="1024" height="1024" alt="" loading="lazy" />
                     <strong>La Pronta Pizza</strong>
                   </article>
                   <article class="sponsor-item">
-                    <img src="./patrocinadores3.png" width="1024" height="1024" alt="" loading="lazy" />
+                    <img src="./assets/images/sponsors/patrocinadores3.png" width="1024" height="1024" alt="" loading="lazy" />
                     <strong>La Trilogía del Sabor</strong>
                   </article>
                 </div>
@@ -979,7 +1028,7 @@
     <footer class="site-footer">
       <div class="container footer-top">
         <div class="footer-brand">
-          <img src="./logo_catec.png" width="1114" height="1485" alt="Logotipo de CATEC" loading="lazy" />
+          <img src="./assets/images/brand/logo-catec.png" width="1114" height="1485" alt="Logotipo de CATEC" loading="lazy" />
           <div>
             <strong>CATEC 2026-II</strong>
             <span>Conocimiento que conecta.</span>
@@ -1010,5 +1059,6 @@
     <script src="./js/modules/sponsor-marquee.js" defer></script>
     <script src="./js/modules/history-carousel.js" defer></script>
     <script src="./js/modules/speaker-story.js" defer></script>
+    <script src="./js/modules/event-posters.js" defer></script>
   </body>
 </html>

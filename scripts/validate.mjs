@@ -58,9 +58,14 @@ const requiredFiles = [
   "sitemap.xml",
   "manifest.webmanifest",
   "fonts/Geist-Variable.woff2",
-  "logo_catec.png",
-  "images/antecedentes/seminario-internacional.png",
-  "images/antecedentes/programming-contest.png"
+  "assets/images/brand/logo-catec.png",
+  "assets/images/antecedentes/seminario-internacional.png",
+  "assets/images/antecedentes/programming-contest.png",
+  "assets/images/speakers/speaker-28.jpeg",
+  "assets/images/speakers/p4.jpg",
+  "assets/images/sponsors/patrocinadores3.png",
+  "assets/images/sponsors/patrocinadores4.png",
+  "assets/images/sponsors/patrocinadores9.png"
 ];
 
 const failures = [];

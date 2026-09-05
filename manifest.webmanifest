@@ -10,7 +10,7 @@
   "lang": "es-PE",
   "icons": [
     {
-      "src": "./logo_catec.png",
+      "src": "./assets/images/brand/logo-catec.png",
       "sizes": "1114x1485",
       "type": "image/png",
       "purpose": "any"

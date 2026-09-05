@@ -39,8 +39,7 @@ jobs:
         run: |
           mkdir -p _site
           cp index.html 404.html robots.txt sitemap.xml manifest.webmanifest .nojekyll _site/
-          cp -R css fonts images js _site/
-          find . -maxdepth 1 -type f \( -iname "*.png" -o -iname "*.jpg" -o -iname "*.jpeg" \) -exec cp {} _site/ \;
+          cp -R assets css fonts js _site/
 
       - name: Subir sitio preparado
         uses: actions/upload-pages-artifact@v4
