@@ -20,6 +20,13 @@
   line-height: 1.65;
 }
 
+.antecedents > .signal-strip {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
 @media (max-width: 760px) {
   .antecedents-heading {
     margin-bottom: 32px;

@@ -9,15 +9,17 @@
 .hero-grid {
   position: absolute;
   inset: 0;
-  opacity: 0.52;
+  opacity: 0.16;
   background-image:
     linear-gradient(rgba(var(--blue-rgb), 0.2) 1px, transparent 1px),
     linear-gradient(90deg, rgba(var(--blue-rgb), 0.2) 1px, transparent 1px);
   background-size: 76px 76px;
-  mask-image: linear-gradient(to bottom, black, transparent 82%);
 }
 
 .hero-sun {
+  --solar-transition-x: 0vw;
+  --solar-transition-turn: 0deg;
+
   position: absolute;
   z-index: 0;
   bottom: 46px;
@@ -25,9 +27,7 @@
   width: max(1080px, 168vw);
   aspect-ratio: 1;
   border: 1px solid rgba(54, 92, 255, 0.46);
-  background:
-    radial-gradient(circle at 50% 0%, rgba(var(--violet-rgb), 0.08), transparent 24%),
-    linear-gradient(180deg, #050616 0%, #02030d 30%, #010207 65%);
+  background: #010207;
   border-radius: 50%;
   box-shadow:
     0 -2px 5px rgba(54, 92, 255, 0.68),
@@ -36,9 +36,10 @@
     0 -76px 158px rgba(var(--violet-rgb), 0.18),
     0 -132px 240px rgba(54, 92, 255, 0.07),
     inset 0 3px 14px rgba(54, 92, 255, 0.09);
-  opacity: 0.98;
+  opacity: 1;
   pointer-events: none;
-  transform: translate(-50%, 89%);
+  transform: translate(-50%, 89%) translate3d(var(--solar-transition-x), 0, 0)
+    rotate(var(--solar-transition-turn));
 }
 
 .hero-sun::after {
@@ -72,7 +73,7 @@
   width: clamp(310px, 22vw, 400px);
   max-width: none;
   height: auto;
-  opacity: 0.76;
+  opacity: 1;
   filter:
     saturate(0.9)
     drop-shadow(0 0 28px rgba(var(--accent-rgb), 0.14));
@@ -195,13 +196,6 @@
   place-items: center;
 }
 
-.hero > .signal-strip {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-
 @media (min-width: 981px) {
   .hero-layout {
     width: min(calc(100% - 64px), 1250px);
@@ -222,7 +216,7 @@
   .hero-hand {
     left: -16px;
     width: 310px;
-    opacity: 0.58;
+    opacity: 1;
   }
 
   .hero-copy {
@@ -243,7 +237,8 @@
     bottom: 44px;
     width: 1080px;
     opacity: 0.94;
-    transform: translate(-50%, 91%);
+    transform: translate(-50%, 91%) translate3d(var(--solar-transition-x), 0, 0)
+      rotate(var(--solar-transition-turn));
   }
 
   .hero-sun::after {
@@ -256,7 +251,7 @@
     bottom: 42px;
     left: -14px;
     width: 250px;
-    opacity: 0.46;
+    opacity: 1;
   }
 
   .hero-layout {

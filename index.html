@@ -136,7 +136,9 @@
     <main id="contenido">
       <section id="inicio" class="hero" aria-labelledby="hero-title">
         <div class="hero-grid" aria-hidden="true"></div>
-        <div class="hero-sun" aria-hidden="true"></div>
+        <div class="hero-sun" data-hero-sun aria-hidden="true">
+          <span class="solar-surface-texture"></span>
+        </div>
         <img
           class="hero-hand"
           src="./assets/images/robot-hand-finger-pointing-ai-technology-backgrou-2022-09-16-09-23-42-utc 1.avif"
@@ -265,20 +267,18 @@
           </div>
         </div>
 
-        <div class="signal-strip" aria-label="Temas de CATEC">
-          <div class="signal-track">
-            <div class="signal-group">
-              <span>TECNOLOGÍA</span><i>✦</i><span>INNOVACIÓN</span><i>✦</i
-              ><span>EMPRENDIMIENTO</span><i>✦</i><span>COMUNIDAD</span><i>✦</i
-              ><span>FUTURO</span><i>✦</i>
-            </div>
-            <div class="signal-group" aria-hidden="true">
-              <span>TECNOLOGÍA</span><i>✦</i><span>INNOVACIÓN</span><i>✦</i
-              ><span>EMPRENDIMIENTO</span><i>✦</i><span>COMUNIDAD</span><i>✦</i
-              ><span>FUTURO</span><i>✦</i>
+      </section>
+
+      <section class="solar-transition" data-solar-transition aria-hidden="true">
+        <div class="solar-transition-grid"></div>
+        <div class="solar-transition-stage">
+          <div class="solar-transition-orbit" data-solar-transition-orbit>
+            <div class="hero-sun solar-transition-sun">
+              <span class="solar-surface-texture"></span>
             </div>
           </div>
         </div>
+
       </section>
 
       <section
@@ -582,6 +582,20 @@
               <button type="button" data-history-prev aria-label="Ver antecedente anterior">←</button>
               <div class="history-dots" data-history-dots aria-label="Seleccionar antecedente"></div>
               <button type="button" data-history-next aria-label="Ver antecedente siguiente">→</button>
+            </div>
+          </div>
+        </div>
+        <div class="signal-strip" aria-label="Temas de CATEC">
+          <div class="signal-track">
+            <div class="signal-group">
+              <span>TECNOLOGÍA</span><i>✦</i><span>INNOVACIÓN</span><i>✦</i
+              ><span>EMPRENDIMIENTO</span><i>✦</i><span>COMUNIDAD</span><i>✦</i
+              ><span>FUTURO</span><i>✦</i>
+            </div>
+            <div class="signal-group" aria-hidden="true">
+              <span>TECNOLOGÍA</span><i>✦</i><span>INNOVACIÓN</span><i>✦</i
+              ><span>EMPRENDIMIENTO</span><i>✦</i><span>COMUNIDAD</span><i>✦</i
+              ><span>FUTURO</span><i>✦</i>
             </div>
           </div>
         </div>
@@ -1074,5 +1088,6 @@
     <script src="./js/modules/history-carousel.js" defer></script>
     <script src="./js/modules/speaker-story.js" defer></script>
     <script src="./js/modules/event-posters.js" defer></script>
+    <script src="./js/modules/solar-transition.js" defer></script>
   </body>
 </html>

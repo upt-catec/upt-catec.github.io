@@ -12,17 +12,6 @@
     #02030a;
 }
 
-.speaker-story::before {
-  position: absolute;
-  z-index: 2;
-  top: 0;
-  right: 0;
-  left: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(var(--accent-rgb), 0.45), transparent);
-  content: "";
-}
-
 .speaker-story-stage {
   display: grid;
   min-height: 100svh;
