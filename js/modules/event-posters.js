@@ -4,6 +4,7 @@
 
   const posters = [...carousel.querySelectorAll("[data-event-poster]")];
   const status = carousel.querySelector("[data-event-poster-status]");
+  const pagination = carousel.parentElement?.querySelector("[data-event-poster-pagination]");
 
   if (posters.length < 2) return;
 
@@ -13,8 +14,48 @@
   let pointerStartY = 0;
   let suppressClick = false;
   let transitionTimer = null;
+  let autoplayTimer = null;
 
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const canHover = window.matchMedia("(hover: hover)");
+  const autoplayDelay = 5000;
+  const autoplayRegion = carousel.closest(".hero-art") ?? carousel;
+  const dots = posters.map((poster, posterIndex) => {
+    const dot = document.createElement("button");
+    dot.className = "event-poster-dot";
+    dot.type = "button";
+    dot.dataset.posterIndex = String(posterIndex);
+    dot.setAttribute(
+      "aria-label",
+      `Mostrar ${poster.dataset.posterName ?? `evento ${posterIndex + 1}`}`
+    );
+    pagination?.append(dot);
+    return dot;
+  });
+
+  function stopAutoplay() {
+    window.clearTimeout(autoplayTimer);
+    autoplayTimer = null;
+  }
+
+  function startAutoplay() {
+    stopAutoplay();
+    if (
+      reducedMotion.matches ||
+      document.hidden ||
+      (canHover.matches && autoplayRegion.matches(":hover")) ||
+      autoplayRegion.contains(document.activeElement)
+    ) return;
+
+    autoplayTimer = window.setTimeout(() => {
+      showPoster(activeIndex + 1, "next", false, true);
+      startAutoplay();
+    }, autoplayDelay);
+  }
+
+  function restartAutoplay() {
+    startAutoplay();
+  }
 
   function resetDragStyles() {
     carousel.style.removeProperty("--active-x");
@@ -63,6 +104,11 @@
       poster.setAttribute("aria-pressed", String(isActive));
     });
 
+    dots.forEach((dot, dotIndex) => {
+      if (dotIndex === activeIndex) dot.setAttribute("aria-current", "true");
+      else dot.removeAttribute("aria-current");
+    });
+
     if (shouldAnimate) {
       if (transition === "spin") {
         outgoingPoster.classList.add("click-spin-out");
@@ -91,6 +137,15 @@
       const direction = posterIndex === activeIndex ? "next" : posterIndex > activeIndex ? "next" : "prev";
       const targetIndex = posterIndex === activeIndex ? activeIndex + 1 : posterIndex;
       showPoster(targetIndex, direction, true, true, "spin");
+      restartAutoplay();
+    });
+  });
+
+  dots.forEach((dot, dotIndex) => {
+    dot.addEventListener("click", () => {
+      const direction = dotIndex >= activeIndex ? "next" : "prev";
+      showPoster(dotIndex, direction, true);
+      restartAutoplay();
     });
   });
 
@@ -98,11 +153,13 @@
     if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
     event.preventDefault();
     move(event.key === "ArrowRight" ? "next" : "prev");
+    restartAutoplay();
   });
 
   carousel.addEventListener("pointerdown", (event) => {
     if (event.button !== 0) return;
 
+    stopAutoplay();
     pointerId = event.pointerId;
     pointerStartX = event.clientX;
     pointerStartY = event.clientY;
@@ -157,6 +214,7 @@
     window.setTimeout(() => {
       suppressClick = false;
     }, 0);
+    restartAutoplay();
   }
 
   carousel.addEventListener("pointerup", finishDrag);
@@ -165,7 +223,24 @@
     carousel.classList.remove("is-dragging");
     pointerId = null;
     resetDragStyles();
+    restartAutoplay();
   });
 
+  autoplayRegion.addEventListener("mouseenter", stopAutoplay);
+  autoplayRegion.addEventListener("mouseleave", startAutoplay);
+  autoplayRegion.addEventListener("focusin", stopAutoplay);
+  autoplayRegion.addEventListener("focusout", (event) => {
+    if (autoplayRegion.contains(event.relatedTarget)) return;
+    startAutoplay();
+  });
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) stopAutoplay();
+    else startAutoplay();
+  });
+
+  reducedMotion.addEventListener("change", startAutoplay);
+
   showPoster(0, "next", false);
+  startAutoplay();
 })();
