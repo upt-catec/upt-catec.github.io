@@ -3,10 +3,9 @@
   margin: 0 0 24px;
   color: var(--acid);
   font-family: var(--font-display);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 620;
+  letter-spacing: 0.01em;
 }
 
 .eyebrow {
@@ -25,7 +24,6 @@
 @media (max-width: 760px) {
   .eyebrow {
     gap: 8px;
-    letter-spacing: 0.14em;
   }
 
   .eyebrow-logo {

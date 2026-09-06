@@ -9,11 +9,25 @@
 .hero-grid {
   position: absolute;
   inset: 0;
-  opacity: 0.16;
+  opacity: 0.14;
   background-image:
     linear-gradient(rgba(var(--blue-rgb), 0.2) 1px, transparent 1px),
     linear-gradient(90deg, rgba(var(--blue-rgb), 0.2) 1px, transparent 1px);
   background-size: 76px 76px;
+  -webkit-mask-image: radial-gradient(
+    ellipse 68% 58% at center,
+    #000 0%,
+    rgba(0, 0, 0, 0.82) 42%,
+    rgba(0, 0, 0, 0.24) 74%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(
+    ellipse 68% 58% at center,
+    #000 0%,
+    rgba(0, 0, 0, 0.82) 42%,
+    rgba(0, 0, 0, 0.24) 74%,
+    transparent 100%
+  );
 }
 
 .hero-sun {
