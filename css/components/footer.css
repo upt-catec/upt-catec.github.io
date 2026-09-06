@@ -43,6 +43,33 @@
   margin: 0 0 5px;
 }
 
+.footer-affiliation {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.footer-affiliation > img {
+  width: 38px;
+  height: 38px;
+  flex: 0 0 auto;
+  object-fit: contain;
+}
+
+.footer-affiliation > div {
+  display: grid;
+  gap: 4px;
+}
+
+.footer-affiliation strong {
+  color: var(--acid);
+  font-family: var(--font-display);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
 .footer-links {
   display: grid;
   gap: 6px;

@@ -148,44 +148,30 @@
           aria-hidden="true"
           draggable="false"
         />
-
         <div class="container hero-layout">
           <div class="hero-copy">
-            <p class="eyebrow">
-              <img
-                class="eyebrow-logo"
-                src="./assets/images/brand/upt.png"
-                width="600"
-                height="600"
-                alt=""
-                aria-hidden="true"
-              />
-              Universidad Privada de Tacna · EPIS
-            </p>
             <h1 id="hero-title">
-              <span>CATEC</span>
-              <strong>2026-II</strong>
+              <span
+                class="hero-title-word"
+                data-typewriter
+                data-typewriter-delay="160"
+                data-typewriter-speed="300"
+              >CATEC</span>
             </h1>
-            <p class="hero-lead">
-              El punto de encuentro donde la <em>tecnología</em>, las ideas y el talento
-              universitario construyen lo que sigue.
-            </p>
+            <p
+              class="hero-lead"
+              data-typewriter
+              data-typewriter-delay="1950"
+              data-typewriter-speed="24"
+            >El punto de encuentro donde la <em>tecnología</em>, las ideas y el talento universitario construyen lo que sigue.</p>
             <div class="hero-actions">
               <a class="button button-primary" href="#evento">
                 Explorar el evento
                 <span class="button-icon" aria-hidden="true">↘</span>
               </a>
-              <a class="button button-ghost" href="#novedades">Recibir novedades</a>
             </div>
 
-            <dl class="hero-meta" aria-label="Información general de CATEC 2026-II">
-              <div>
-                <dt title="Edición">
-                  <svg class="hero-meta-icon" aria-hidden="true"><use href="#icon-edition"></use></svg>
-                  <span class="sr-only">Edición</span>
-                </dt>
-                <dd>2026-II</dd>
-              </div>
+            <dl class="hero-meta" aria-label="Información general de CATEC">
               <div>
                 <dt title="Ciudad">
                   <svg class="hero-meta-icon" aria-hidden="true"><use href="#icon-location"></use></svg>
@@ -1063,8 +1049,19 @@
           </div>
         </div>
         <div class="footer-context">
-          <p>Escuela Profesional de Ingeniería de Sistemas</p>
-          <p>Universidad Privada de Tacna</p>
+          <div class="footer-affiliation">
+            <img
+              src="./assets/images/brand/upt.png"
+              width="600"
+              height="600"
+              alt=""
+              aria-hidden="true"
+            />
+            <div>
+              <strong>Organizado por estudiantes de EPIS</strong>
+              <span>Universidad Privada de Tacna</span>
+            </div>
+          </div>
           <p>Tacna, Perú</p>
         </div>
         <nav class="footer-links" aria-label="Enlaces del pie de página">
@@ -1088,6 +1085,7 @@
     <script src="./js/modules/history-carousel.js" defer></script>
     <script src="./js/modules/speaker-story.js" defer></script>
     <script src="./js/modules/event-posters.js" defer></script>
+    <script src="./js/modules/typewriter.js" defer></script>
     <script src="./js/modules/solar-transition.js" defer></script>
   </body>
 </html>

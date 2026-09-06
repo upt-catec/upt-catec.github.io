@@ -19,6 +19,13 @@
 .hero-sun {
   --solar-transition-x: 0vw;
   --solar-transition-turn: 0deg;
+  --solar-edge-shadow:
+    0 0 6px rgba(54, 92, 255, 0.92),
+    0 0 28px rgba(54, 92, 255, 0.62),
+    0 0 76px rgba(var(--blue-rgb), 0.46),
+    0 0 150px rgba(var(--violet-rgb), 0.32),
+    0 0 230px rgba(54, 92, 255, 0.14),
+    inset 0 0 14px rgba(54, 92, 255, 0.16);
 
   position: absolute;
   z-index: 0;
@@ -29,40 +36,11 @@
   border: 1px solid rgba(54, 92, 255, 0.46);
   background: #010207;
   border-radius: 50%;
-  box-shadow:
-    0 -2px 5px rgba(54, 92, 255, 0.68),
-    0 -10px 25px rgba(54, 92, 255, 0.34),
-    0 -32px 76px rgba(var(--blue-rgb), 0.26),
-    0 -76px 158px rgba(var(--violet-rgb), 0.18),
-    0 -132px 240px rgba(54, 92, 255, 0.07),
-    inset 0 3px 14px rgba(54, 92, 255, 0.09);
+  box-shadow: var(--solar-edge-shadow);
   opacity: 1;
   pointer-events: none;
   transform: translate(-50%, 89%) translate3d(var(--solar-transition-x), 0, 0)
     rotate(var(--solar-transition-turn));
-}
-
-.hero-sun::after {
-  position: absolute;
-  border-radius: 50%;
-  content: "";
-  pointer-events: none;
-}
-
-.hero-sun::after {
-  top: -74px;
-  left: 50%;
-  width: min(88vw, 1320px);
-  height: 170px;
-  background: radial-gradient(
-    ellipse at center,
-    rgba(54, 92, 255, 0.22),
-    rgba(var(--blue-rgb), 0.12) 36%,
-    rgba(var(--violet-rgb), 0.07) 54%,
-    transparent 72%
-  );
-  filter: blur(34px);
-  transform: translateX(-50%);
 }
 
 .hero-hand {
@@ -103,18 +81,8 @@
   line-height: 0.72;
 }
 
-.hero h1 span,
-.hero h1 strong {
+.hero-title-word {
   display: block;
-}
-
-.hero h1 strong {
-  margin-top: 0.22em;
-  color: transparent;
-  font-size: 0.45em;
-  font-weight: 500;
-  letter-spacing: 0.16em;
-  -webkit-text-stroke: 1px var(--acid);
 }
 
 .hero-lead {
@@ -139,14 +107,21 @@
 }
 
 .hero-actions .button-primary {
+  gap: 8px;
+  padding-inline: 30px;
   animation: hero-cta-pulse 2.8s ease-out infinite;
+}
+
+.hero-actions .button:hover .button-icon,
+.hero-actions .button:focus-visible .button-icon {
+  transform: translateX(2px);
 }
 
 
 .hero-meta {
   display: flex;
   flex-wrap: wrap;
-  gap: 0;
+  gap: 48px;
   margin: 52px 0 0;
 }
 
@@ -154,14 +129,7 @@
   display: flex;
   min-width: 145px;
   align-items: center;
-  gap: 14px;
-  padding: 0 22px;
-  border-left: 1px solid var(--line-strong);
-}
-
-.hero-meta div:first-child {
-  padding-left: 0;
-  border-left: 0;
+  gap: 16px;
 }
 
 .hero-meta dt {
@@ -175,8 +143,8 @@
 }
 
 .hero-meta-icon {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   flex: 0 0 auto;
   fill: currentColor;
 }
@@ -184,7 +152,7 @@
 .hero-meta dd {
   margin: 0;
   font-family: var(--font-display);
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
   line-height: 1.25;
 }
@@ -241,12 +209,6 @@
       rotate(var(--solar-transition-turn));
   }
 
-  .hero-sun::after {
-    top: -52px;
-    width: 90vw;
-    height: 130px;
-  }
-
   .hero-hand {
     bottom: 42px;
     left: -14px;
@@ -263,10 +225,6 @@
     font-size: clamp(77px, 25vw, 112px);
   }
 
-  .hero h1 strong {
-    margin-top: 0.3em;
-  }
-
   .hero-lead {
     margin-top: 30px;
     font-size: clamp(18px, 5.2vw, 20px);
@@ -274,58 +232,38 @@
   }
 
   .hero-actions {
-    display: grid;
-    max-width: 400px;
-    grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
-    gap: 8px;
+    max-width: max-content;
     margin-top: 28px;
   }
 
   .hero-actions .button {
-    width: 100%;
+    width: auto;
     min-width: 0;
     min-height: 48px;
-    gap: 8px;
-    padding: 10px 12px;
+    gap: 6px;
+    padding: 10px 22px;
     font-size: clamp(11px, 3.1vw, 12px);
     white-space: nowrap;
   }
 
   .hero-meta {
     max-width: 520px;
-    grid-template-columns: auto auto minmax(0, 1fr);
-    gap: 0;
+    gap: 26px;
     margin-top: 34px;
-    border-top: 1px solid var(--line-strong);
-    border-bottom: 1px solid var(--line-strong);
   }
 
   .hero-meta div {
     min-width: 0;
-    gap: 6px;
-    padding: 14px 8px;
-    border: 0;
-  }
-
-  .hero-meta div + div {
-    border-left: 1px solid var(--line-strong);
-  }
-
-  .hero-meta div:nth-child(3) {
-    padding-right: 0;
-  }
-
-  .hero-meta div:first-child {
-    padding-left: 0;
+    gap: 10px;
   }
 
   .hero-meta-icon {
-    width: clamp(24px, 6.8vw, 28px);
-    height: clamp(24px, 6.8vw, 28px);
+    width: clamp(30px, 8vw, 34px);
+    height: clamp(30px, 8vw, 34px);
   }
 
   .hero-meta dd {
-    font-size: clamp(11px, 3.1vw, 13px);
+    font-size: clamp(14px, 3.8vw, 16px);
     white-space: nowrap;
   }
 
