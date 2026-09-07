@@ -1,23 +1,67 @@
 .sponsors {
   overflow: hidden;
   background:
-    radial-gradient(circle at 80% 20%, rgba(var(--violet-rgb), 0.08), transparent 28%),
-    var(--surface);
+    radial-gradient(circle at 82% 14%, rgba(var(--blue-rgb), 0.1), transparent 31%),
+    radial-gradient(circle at 12% 82%, rgba(var(--violet-rgb), 0.055), transparent 29%),
+    linear-gradient(145deg, #ececea 0%, #e5e6e8 52%, #dfe1e4 100%);
+  color: #17191f;
 }
 
 .sponsors-heading {
   max-width: 720px;
-  margin-inline: auto;
-  text-align: center;
 }
 
-.sponsors-heading > .kicker {
-  color: var(--acid);
-  font-size: 11px;
+.sponsors .section-kicker {
+  color: #087f75;
+}
+
+.sponsors-heading h2 {
+  color: #17191f;
 }
 
 .sponsors-heading > p:last-child {
   max-width: 590px;
-  margin: 20px auto 0;
-  color: var(--muted);
+  margin: 20px 0 0;
+  color: #606676;
+}
+
+.sponsors .sponsor-panel {
+  isolation: isolate;
+  border-color: rgba(255, 255, 255, 0.28);
+  background:
+    linear-gradient(125deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.1) 46%),
+    linear-gradient(315deg, rgba(225, 232, 239, 0.28), rgba(255, 255, 255, 0.07) 58%);
+  box-shadow:
+    0 38px 96px rgba(37, 43, 55, 0.17),
+    0 10px 28px rgba(37, 43, 55, 0.08),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.2),
+    inset 0 18px 28px -26px rgba(255, 255, 255, 0.92),
+    inset 0 -18px 26px -28px rgba(73, 88, 108, 0.24),
+    inset 16px 0 28px -30px rgba(255, 255, 255, 0.72),
+    inset -16px 0 28px -30px rgba(83, 101, 123, 0.18);
+  -webkit-backdrop-filter: blur(24px) saturate(145%) contrast(104%);
+  backdrop-filter: blur(24px) saturate(145%) contrast(104%);
+}
+
+.sponsors .sponsor-panel::before {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  content: "";
+  inset: 0;
+  background:
+    radial-gradient(ellipse 42% 18% at 18% 0%, rgba(255, 255, 255, 0.68), transparent 70%),
+    radial-gradient(ellipse 30% 15% at 88% 100%, rgba(255, 255, 255, 0.3), transparent 72%),
+    linear-gradient(112deg, transparent 38%, rgba(255, 255, 255, 0.16) 50%, transparent 62%);
+  border-radius: inherit;
+  opacity: 0.72;
+}
+
+.sponsors .sponsor-row {
+  position: relative;
+  z-index: 1;
+}
+
+.sponsors .sponsor-item strong {
+  color: #1c2230;
 }

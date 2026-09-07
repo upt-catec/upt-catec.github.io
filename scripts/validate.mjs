@@ -65,7 +65,10 @@ const requiredFiles = [
   "assets/images/speakers/p4.jpg",
   "assets/images/sponsors/patrocinadores3.png",
   "assets/images/sponsors/patrocinadores4.png",
-  "assets/images/sponsors/patrocinadores9.png"
+  "assets/images/sponsors/patrocinadores9.png",
+  "assets/images/sponsors/PollosYParillasLiderChiken.jpg",
+  "assets/images/sponsors/logo ok.jpg",
+  "assets/images/sponsors/JimenaVelasquezBeautyStudio.JPG"
 ];
 
 const failures = [];

@@ -1,10 +1,8 @@
 .eyebrow,
-.kicker {
-  margin: 0 0 24px;
+.kicker,
+.section-kicker {
   color: var(--acid);
   font-family: var(--font-display);
-  font-size: 18px;
-  font-weight: 620;
   letter-spacing: 0.01em;
 }
 
@@ -12,6 +10,17 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  margin: 0 0 24px;
+  font-size: 18px;
+  font-weight: 620;
+}
+
+.kicker,
+.section-kicker {
+  margin: 0 0 clamp(2rem, 5vh, 3.5rem);
+  font-size: clamp(1rem, 1.4vw, 1.18rem);
+  font-weight: 520;
+  line-height: 1.2;
 }
 
 .eyebrow-logo {
@@ -53,8 +62,8 @@
 }
 
 
-.section-heading > p,
-.split-heading > p {
+.section-heading > p:not(.section-kicker),
+.split-heading > p:not(.section-kicker) {
   margin: 0;
   color: var(--muted);
   font-size: 16px;

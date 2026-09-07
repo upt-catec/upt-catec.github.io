@@ -75,14 +75,6 @@
   will-change: transform;
 }
 
-.solar-story-kicker {
-  margin: 0 0 18px;
-  color: var(--acid);
-  font-size: 18px;
-  font-weight: 620;
-  letter-spacing: 0.01em;
-}
-
 .solar-story h2 {
   max-width: 720px;
   margin: 0;
@@ -357,10 +349,6 @@
     align-content: center;
     gap: 22px;
     padding-block: 82px 24px;
-  }
-
-  .solar-story-kicker {
-    margin-bottom: 10px;
   }
 
   .solar-story h2 {

@@ -8,15 +8,12 @@
 
 .antecedents-heading {
   max-width: 770px;
-  margin-right: auto;
   margin-bottom: 44px;
-  margin-left: auto;
-  text-align: center;
 }
 
 .antecedents-heading > p:last-child {
   max-width: 640px;
-  margin: 22px auto 0;
+  margin: 22px 0 0;
   line-height: 1.65;
 }
 
@@ -30,10 +27,5 @@
 @media (max-width: 760px) {
   .antecedents-heading {
     margin-bottom: 32px;
-    text-align: left;
-  }
-
-  .antecedents-heading > p:last-child {
-    margin-left: 0;
   }
 }

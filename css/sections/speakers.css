@@ -34,14 +34,6 @@
   flex: 1 1 980px;
 }
 
-.speaker-story-kicker {
-  margin: 0 0 14px;
-  color: var(--acid);
-  font-size: 18px;
-  font-weight: 620;
-  letter-spacing: 0.01em;
-}
-
 .speaker-story h2 {
   max-width: 980px;
   min-height: 2.15em;

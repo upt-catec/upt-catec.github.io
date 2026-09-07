@@ -9,12 +9,6 @@
   margin-bottom: 44px;
 }
 
-.about-heading > .kicker {
-  margin: 0 0 24px;
-  color: var(--acid);
-  font-size: 11px;
-}
-
 .about-heading h2 {
   max-width: 760px;
 }

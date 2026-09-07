@@ -80,6 +80,58 @@
     <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
 
     <svg class="icon-sprite" aria-hidden="true">
+      <filter
+        id="sponsor-edge-refraction"
+        x="-12%"
+        y="-18%"
+        width="124%"
+        height="136%"
+        color-interpolation-filters="sRGB"
+      >
+        <feTurbulence
+          type="fractalNoise"
+          baseFrequency="0.004 0.014"
+          numOctaves="1"
+          seed="8"
+          result="refraction-map"
+        ></feTurbulence>
+        <feColorMatrix
+          in="refraction-map"
+          type="matrix"
+          values="1 0 0 0 0  0 0 0 0 0.5  0 0 0 0 0.5  0 0 0 1 0"
+          result="horizontal-refraction-map"
+        ></feColorMatrix>
+        <feDisplacementMap
+          in="SourceGraphic"
+          in2="horizontal-refraction-map"
+          scale="24"
+          xChannelSelector="R"
+          yChannelSelector="B"
+          result="refracted"
+        ></feDisplacementMap>
+        <feOffset in="refracted" dx="-2.4" result="red-offset"></feOffset>
+        <feColorMatrix
+          in="red-offset"
+          type="matrix"
+          values="1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0"
+          result="red-channel"
+        ></feColorMatrix>
+        <feColorMatrix
+          in="refracted"
+          type="matrix"
+          values="0 0 0 0 0  0 1 0 0 0  0 0 0 0 0  0 0 0 1 0"
+          result="green-channel"
+        ></feColorMatrix>
+        <feOffset in="refracted" dx="2.4" result="blue-offset"></feOffset>
+        <feColorMatrix
+          in="blue-offset"
+          type="matrix"
+          values="0 0 0 0 0  0 0 0 0 0  0 0 1 0 0  0 0 0 1 0"
+          result="blue-channel"
+        ></feColorMatrix>
+        <feBlend in="red-channel" in2="green-channel" mode="screen" result="red-green"></feBlend>
+        <feBlend in="red-green" in2="blue-channel" mode="screen"></feBlend>
+      </filter>
       <symbol id="icon-linkedin" viewBox="0 0 24 24">
         <circle cx="4" cy="4" r="2"></circle>
         <path d="M2 9h4v12H2zM10 9h4v2a5 5 0 0 1 8 4v6h-4v-6a2 2 0 0 0-4 0v6h-4z"></path>
@@ -271,7 +323,7 @@
 
           <div class="container solar-story">
             <div class="solar-story-copy">
-              <p class="solar-story-kicker">La experiencia CATEC</p>
+              <p class="section-kicker">La experiencia CATEC</p>
               <h2 id="solar-story-title">Ideas que avanzan contigo.</h2>
               <ol class="solar-story-steps" data-solar-story-steps>
                 <li class="is-active" data-solar-story-step aria-current="step">
@@ -327,7 +379,7 @@
         <div class="speaker-story-stage" data-speaker-story-stage>
           <header class="speaker-story-header">
             <div>
-              <p class="speaker-story-kicker">Ponentes · 16 de septiembre</p>
+              <p class="section-kicker">Ponentes · 16 de septiembre</p>
               <h2 id="speaker-story-title">
                 <span class="sr-only">Ponentes de CATEC 2026-II</span>
                 <span class="speaker-story-title-text" aria-hidden="true" data-speaker-story-title>
@@ -512,7 +564,7 @@
       <section id="evento" class="section about" aria-labelledby="about-title">
         <div class="container">
           <div class="section-heading about-heading">
-            <p class="kicker">El evento</p>
+            <p class="section-kicker">El evento</p>
             <h2 id="about-title">Ideas que salen del aula y se conectan con el mundo.</h2>
             <p class="about-description">
               CATEC es un evento académico y tecnológico impulsado por estudiantes de la
@@ -545,7 +597,7 @@
       <section id="antecedentes" class="section antecedents" aria-labelledby="antecedents-title">
         <div class="container">
           <div class="section-heading antecedents-heading">
-            <p class="kicker">02 / Antecedentes</p>
+            <p class="section-kicker">Antecedentes</p>
             <h2 id="antecedents-title">Una historia construida en cada encuentro.</h2>
             <p>
               Actividades y ediciones que reunieron a la comunidad alrededor del conocimiento,
@@ -641,7 +693,7 @@
       <section class="section event-status" aria-labelledby="status-title">
         <div class="container status-layout">
           <div>
-            <p class="kicker">Información oficial</p>
+            <p class="section-kicker">Información oficial</p>
             <h2 id="status-title">Estamos preparando una nueva edición.</h2>
             <p>
               La modalidad, el lugar y las inscripciones se publicarán aquí apenas queden
@@ -668,7 +720,7 @@
       <section id="agenda" class="section agenda" aria-labelledby="agenda-title">
         <div class="container">
           <div class="section-heading compact-heading">
-            <p class="kicker">03 / Agenda</p>
+            <p class="section-kicker">Agenda</p>
             <h2 id="agenda-title">Un programa para entender el presente y diseñar el futuro.</h2>
           </div>
 
@@ -694,7 +746,7 @@
         <div class="container">
           <div class="section-heading split-heading speakers-heading">
             <div>
-              <p class="kicker">04 / Ponentes</p>
+              <p class="section-kicker">Ponentes</p>
               <h2 id="speakers-title">Cinco voces para una jornada de aprendizaje.</h2>
             </div>
             <p>
@@ -918,7 +970,7 @@
       <section class="section audience" aria-labelledby="audience-title">
         <div class="container">
           <div class="section-heading audience-heading">
-            <p class="kicker">05 / Para ti</p>
+            <p class="section-kicker">Para ti</p>
             <h2 id="audience-title">Si la tecnología despierta tu curiosidad, este espacio es tuyo.</h2>
             <p>
               Una jornada abierta para aprender, compartir ideas y conectar con personas que
@@ -961,7 +1013,7 @@
       <section id="patrocinadores" class="section sponsors" aria-labelledby="sponsors-title">
         <div class="container">
           <div class="section-heading sponsors-heading">
-            <p class="kicker">06 / Patrocinadores</p>
+            <p class="section-kicker">Patrocinadores</p>
             <h2 id="sponsors-title">Aliados que impulsan CATEC.</h2>
             <p>
               Organizaciones que se suman para hacer posible una experiencia de aprendizaje,
@@ -985,6 +1037,18 @@
                     <img src="./assets/images/sponsors/patrocinadores9.png" width="1024" height="1024" alt="" loading="lazy" />
                     <strong>La Pronta Pizza</strong>
                   </article>
+                  <article class="sponsor-item">
+                    <img src="./assets/images/sponsors/PollosYParillasLiderChiken.jpg" width="500" height="500" alt="" loading="lazy" />
+                    <strong>Líder Chicken</strong>
+                  </article>
+                  <article class="sponsor-item">
+                    <img src="./assets/images/sponsors/logo ok.jpg" width="1600" height="1600" alt="" loading="lazy" />
+                    <strong>Zheros Express</strong>
+                  </article>
+                  <article class="sponsor-item">
+                    <img src="./assets/images/sponsors/JimenaVelasquezBeautyStudio.JPG" width="1080" height="1080" alt="" loading="lazy" />
+                    <strong>Jimena Velásquez Beauty Studio</strong>
+                  </article>
                 </div>
               </div>
             </div>
@@ -1003,6 +1067,18 @@
                   <article class="sponsor-item">
                     <img src="./assets/images/sponsors/patrocinadores4.png" width="1024" height="1024" alt="" loading="lazy" />
                     <strong>Nutrifit</strong>
+                  </article>
+                  <article class="sponsor-item">
+                    <img src="./assets/images/sponsors/JimenaVelasquezBeautyStudio.JPG" width="1080" height="1080" alt="" loading="lazy" />
+                    <strong>Jimena Velásquez Beauty Studio</strong>
+                  </article>
+                  <article class="sponsor-item">
+                    <img src="./assets/images/sponsors/PollosYParillasLiderChiken.jpg" width="500" height="500" alt="" loading="lazy" />
+                    <strong>Líder Chicken</strong>
+                  </article>
+                  <article class="sponsor-item">
+                    <img src="./assets/images/sponsors/logo ok.jpg" width="1600" height="1600" alt="" loading="lazy" />
+                    <strong>Zheros Express</strong>
                   </article>
                 </div>
               </div>
@@ -1023,6 +1099,18 @@
                     <img src="./assets/images/sponsors/patrocinadores3.png" width="1024" height="1024" alt="" loading="lazy" />
                     <strong>La Trilogía del Sabor</strong>
                   </article>
+                  <article class="sponsor-item">
+                    <img src="./assets/images/sponsors/logo ok.jpg" width="1600" height="1600" alt="" loading="lazy" />
+                    <strong>Zheros Express</strong>
+                  </article>
+                  <article class="sponsor-item">
+                    <img src="./assets/images/sponsors/JimenaVelasquezBeautyStudio.JPG" width="1080" height="1080" alt="" loading="lazy" />
+                    <strong>Jimena Velásquez Beauty Studio</strong>
+                  </article>
+                  <article class="sponsor-item">
+                    <img src="./assets/images/sponsors/PollosYParillasLiderChiken.jpg" width="500" height="500" alt="" loading="lazy" />
+                    <strong>Líder Chicken</strong>
+                  </article>
                 </div>
               </div>
             </div>
@@ -1033,7 +1121,7 @@
       <section id="preguntas" class="section faq" aria-labelledby="faq-title">
         <div class="container faq-layout">
           <div class="faq-intro">
-            <p class="kicker">07 / Preguntas</p>
+            <p class="section-kicker">Preguntas</p>
             <h2 id="faq-title">Lo esencial, sin rodeos.</h2>
             <p>Actualizaremos estas respuestas conforme se confirme la información oficial.</p>
           </div>
@@ -1076,7 +1164,7 @@
             <span></span><span></span><span></span><span></span><span></span>
           </div>
           <div>
-            <p class="kicker">Mantente conectado</p>
+            <p class="section-kicker">Mantente conectado</p>
             <h2 id="newsletter-title">La siguiente señal llegará pronto.</h2>
             <p>
               En cuanto se habiliten los canales oficiales de CATEC 2026-II, encontrarás aquí
