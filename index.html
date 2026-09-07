@@ -205,15 +205,13 @@
             <h1 id="hero-title">
               <span
                 class="hero-title-word"
-                data-typewriter
-                data-typewriter-delay="160"
-                data-typewriter-speed="300"
+                data-hero-title-reveal
               >CATEC</span>
             </h1>
             <p
               class="hero-lead"
               data-typewriter
-              data-typewriter-delay="1950"
+              data-typewriter-delay="1350"
               data-typewriter-speed="24"
             >El punto de encuentro donde la <em>tecnología</em>, las ideas y el talento universitario construyen lo que sigue.</p>
             <div class="hero-actions">
@@ -290,9 +288,32 @@
                 </span>
               </button>
 
+              <button
+                class="event-poster event-poster-identity"
+                type="button"
+                data-event-poster
+                data-poster-name="CATEC 2026-II"
+                aria-label="Mostrar tarjeta de CATEC 2026-II"
+                aria-pressed="false"
+              >
+                <span class="event-poster-frame">
+                  <span class="event-poster-identity-content" aria-hidden="true">
+                    <img
+                      src="./assets/images/brand/logo-catec.png"
+                      width="1114"
+                      height="1485"
+                      alt=""
+                      draggable="false"
+                    />
+                    <strong>CATEC 2026-II</strong>
+                    <small>Conocimiento que conecta.</small>
+                  </span>
+                </span>
+              </button>
+
               <span class="sr-only" id="event-posters-help">
                 Haz clic o arrastra la tarjeta principal para cambiar de evento. También puedes
-                usar las flechas izquierda y derecha del teclado. Los afiches avanzan
+                usar las flechas izquierda y derecha del teclado. Las tarjetas avanzan
                 automáticamente cada cinco segundos cuando no estás interactuando.
               </span>
               <span class="sr-only" data-event-poster-status aria-live="polite"></span>
@@ -1224,6 +1245,7 @@
     <script src="./js/modules/history-carousel.js" defer></script>
     <script src="./js/modules/speaker-story.js" defer></script>
     <script src="./js/modules/event-posters.js" defer></script>
+    <script src="./js/modules/hero-title-reveal.js" defer></script>
     <script src="./js/modules/typewriter.js" defer></script>
     <script src="./js/modules/solar-transition.js" defer></script>
   </body>

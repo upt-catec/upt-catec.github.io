@@ -20,7 +20,7 @@
   --spin-skew: 3deg;
 
   position: relative;
-  width: min(100%, 420px);
+  width: min(100%, 470px);
   aspect-ratio: 509 / 720;
   outline: none;
   perspective: 1200px;
@@ -32,7 +32,7 @@
   position: absolute;
   inset: 10%;
   background: rgba(var(--blue-rgb), 0.16);
-  border-radius: 36px;
+  border-radius: 72px;
   box-shadow: 0 0 90px rgba(var(--violet-rgb), 0.28);
   content: "";
   filter: blur(42px);
@@ -97,7 +97,7 @@
   overflow: hidden;
   border: 1px solid rgba(var(--accent-rgb), 0.32);
   background: var(--surface);
-  border-radius: 28px;
+  border-radius: 60px;
   box-shadow:
     0 24px 70px rgba(0, 0, 0, 0.42),
     0 0 30px rgba(var(--blue-rgb), 0.12);
@@ -133,6 +133,47 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.event-poster-identity .event-poster-frame {
+  background:
+    radial-gradient(circle at 50% 30%, rgba(var(--blue-rgb), 0.2), transparent 34%),
+    linear-gradient(155deg, #111d46, #070b24 72%);
+}
+
+.event-poster-identity-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 42px;
+  text-align: center;
+}
+
+.event-poster-identity-content img {
+  width: clamp(118px, 34%, 160px);
+  height: auto;
+  max-height: 215px;
+  margin-bottom: 32px;
+  object-fit: contain;
+}
+
+.event-poster-identity-content strong {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3vw, 38px);
+  font-weight: 620;
+  letter-spacing: -0.045em;
+}
+
+.event-poster-identity-content small {
+  margin-top: 12px;
+  color: var(--acid);
+  font-size: 13px;
+  font-weight: 650;
+  letter-spacing: 0.08em;
 }
 
 .event-poster-rotator.is-dragging,
@@ -431,7 +472,7 @@
 
 @media (max-width: 980px) {
   .event-poster-rotator {
-    width: 340px;
+    width: 380px;
   }
 }
 
@@ -441,7 +482,7 @@
     --back-y: -10px;
     --back-z: -40px;
 
-    width: min(100%, 290px);
+    width: min(100%, 320px);
   }
 
   .event-poster-rotator[data-direction="prev"] {
@@ -449,7 +490,7 @@
   }
 
   .event-poster-frame {
-    border-radius: 22px;
+    border-radius: 42px;
   }
 
   @keyframes poster-idle-orbit {

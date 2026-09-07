@@ -46,7 +46,8 @@ const jsFiles = [
   "js/modules/mobile-menu.js",
   "js/modules/sponsor-marquee.js",
   "js/modules/history-carousel.js",
-  "js/modules/speaker-story.js"
+  "js/modules/speaker-story.js",
+  "js/modules/hero-title-reveal.js"
 ];
 
 const requiredFiles = [

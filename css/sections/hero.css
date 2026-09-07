@@ -99,6 +99,25 @@
   display: block;
 }
 
+.hero-title-visual,
+.hero-title-letter-mask,
+.hero-title-letter {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.hero-title-letter-mask {
+  overflow: visible;
+}
+
+.hero-title-letter {
+  will-change: transform, opacity;
+}
+
+.hero-title-letter-mask:nth-child(4) {
+  margin-left: -0.012em;
+}
+
 .hero-lead {
   max-width: 620px;
   margin: 44px 0 0;
@@ -174,7 +193,7 @@
 .hero-art {
   position: relative;
   display: grid;
-  min-height: 600px;
+  min-height: 660px;
   place-items: center;
 }
 
@@ -206,7 +225,7 @@
   }
 
   .hero-art {
-    min-height: 500px;
+    min-height: 540px;
   }
 }
 
@@ -282,7 +301,7 @@
   }
 
   .hero-art {
-    min-height: 395px;
+    min-height: 440px;
   }
 }
 
