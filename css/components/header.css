@@ -4,7 +4,7 @@
   top: 0;
   right: 0;
   left: 0;
-  padding-top: 18px;
+  padding-top: 14px;
   border-bottom: 1px solid transparent;
   background: transparent;
   -webkit-backdrop-filter: none;
@@ -25,11 +25,11 @@
   left: 50%;
   display: flex;
   width: min(calc(100% - 40px), var(--container));
-  min-height: 68px;
+  min-height: 60px;
   align-items: center;
   justify-content: space-between;
   margin-inline: 0;
-  padding: 0 12px;
+  padding: 0 10px;
   isolation: isolate;
   transform: translateX(-50%);
   transition: width 560ms cubic-bezier(0.22, 1, 0.36, 1);
@@ -61,12 +61,12 @@
 
 @media (max-width: 760px) {
   .site-header {
-    padding-top: 10px;
+    padding-top: 8px;
   }
 
   .header-inner {
     width: min(calc(100% - 28px), var(--container));
-    min-height: 62px;
+    min-height: 56px;
   }
 
   .site-header.is-scrolled .header-inner {

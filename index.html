@@ -408,15 +408,33 @@
                 </span>
               </h2>
             </div>
-            <div class="speaker-story-progress" aria-hidden="true">
-              <span data-speaker-story-current>01</span>
-              <i></i>
-              <span>05</span>
-            </div>
+            <nav class="speaker-story-controls" aria-label="Navegación de ponentes">
+              <button
+                type="button"
+                data-speaker-story-prev
+                aria-label="Ver ponente anterior"
+                aria-controls="speaker-story-track"
+                disabled
+              >
+                <svg viewBox="0 0 20 20" aria-hidden="true">
+                  <path d="m12 5-5 5 5 5" />
+                </svg>
+              </button>
+              <button
+                type="button"
+                data-speaker-story-next
+                aria-label="Ver siguiente ponente"
+                aria-controls="speaker-story-track"
+              >
+                <svg viewBox="0 0 20 20" aria-hidden="true">
+                  <path d="m8 5 5 5-5 5" />
+                </svg>
+              </button>
+            </nav>
           </header>
 
           <div class="speaker-story-viewport" data-speaker-story-viewport>
-            <ol class="speaker-story-track" aria-label="Ponentes del 16 de septiembre" data-speaker-story-track>
+            <ol id="speaker-story-track" class="speaker-story-track" aria-label="Ponentes del 16 de septiembre" data-speaker-story-track>
               <li
                 class="speaker-story-item"
                 data-speaker-story-card
@@ -425,7 +443,9 @@
                 <article class="speaker-story-card speaker-story-card-violet" tabindex="0">
                   <div class="speaker-story-photo">
                     <img src="./assets/images/speakers/speaker-28.jpeg" width="200" height="200" alt="" loading="lazy" />
-                    <span aria-hidden="true">01</span>
+                    <span class="speaker-story-country" role="img" aria-label="Perú">
+                      <img src="./assets/images/flags/peru.svg" alt="" aria-hidden="true" />
+                    </span>
                   </div>
                   <div class="speaker-story-copy">
                     <p class="speaker-story-meta">
@@ -452,22 +472,24 @@
               <li
                 class="speaker-story-item"
                 data-speaker-story-card
-                data-story-title="La experiencia también se comparte."
+                data-story-title="Swappings blockchain."
               >
                 <article class="speaker-story-card speaker-story-card-blue" tabindex="0">
                   <div class="speaker-story-photo">
-                    <img src="./assets/images/speakers/p4.jpg" width="414" height="529" alt="" loading="lazy" />
-                    <span aria-hidden="true">02</span>
+                    <img src="./assets/images/speakers/Thomas Arturo Sorza Sierra.jpg" width="400" height="400" alt="" loading="lazy" />
+                    <span class="speaker-story-country" role="img" aria-label="Colombia">
+                      <img src="./assets/images/flags/colombia.svg" alt="" aria-hidden="true" />
+                    </span>
                   </div>
                   <div class="speaker-story-copy">
                     <p class="speaker-story-meta">
                       <time datetime="2026-09-16T10:15:00-05:00">10:15 AM</time>
-                      <span>Información en actualización</span>
+                      <span>Ingeniero de Sistemas y Computación</span>
                     </p>
-                    <h3>Nombre completo del ponente</h3>
-                    <p class="speaker-story-topic"><strong>Tema</strong> Por confirmar</p>
+                    <h3>Thomas Arturo Sorza Sierra</h3>
+                    <p class="speaker-story-topic"><strong>Tema</strong> Swappings blockchain</p>
                     <p class="speaker-story-description">
-                      El perfil profesional y los detalles de la ponencia se publicarán próximamente.
+                      Ingeniero de Sistemas y Computación de Colombia.
                     </p>
                     <div class="speaker-story-socials" aria-label="Redes del ponente">
                       <span class="badge badge-social badge-linkedin" aria-label="LinkedIn próximamente" aria-disabled="true" title="LinkedIn próximamente">
@@ -489,7 +511,9 @@
                 <article class="speaker-story-card speaker-story-card-cyan" tabindex="0">
                   <div class="speaker-story-photo">
                     <img src="./assets/images/speakers/p4.jpg" width="414" height="529" alt="" loading="lazy" />
-                    <span aria-hidden="true">03</span>
+                    <span class="speaker-story-country" role="img" aria-label="Uruguay">
+                      <img src="./assets/images/flags/uruguay.svg" alt="" aria-hidden="true" />
+                    </span>
                   </div>
                   <div class="speaker-story-copy">
                     <p class="speaker-story-meta">
@@ -521,7 +545,9 @@
                 <article class="speaker-story-card speaker-story-card-mint" tabindex="0">
                   <div class="speaker-story-photo">
                     <img src="./assets/images/speakers/p4.jpg" width="414" height="529" alt="" loading="lazy" />
-                    <span aria-hidden="true">04</span>
+                    <span class="speaker-story-country" role="img" aria-label="Perú">
+                      <img src="./assets/images/flags/peru.svg" alt="" aria-hidden="true" />
+                    </span>
                   </div>
                   <div class="speaker-story-copy">
                     <p class="speaker-story-meta">
@@ -553,7 +579,9 @@
                 <article class="speaker-story-card speaker-story-card-violet" tabindex="0">
                   <div class="speaker-story-photo">
                     <img src="./assets/images/speakers/p4.jpg" width="414" height="529" alt="" loading="lazy" />
-                    <span aria-hidden="true">05</span>
+                    <span class="speaker-story-country" role="img" aria-label="Colombia">
+                      <img src="./assets/images/flags/colombia.svg" alt="" aria-hidden="true" />
+                    </span>
                   </div>
                   <div class="speaker-story-copy">
                     <p class="speaker-story-meta">
@@ -831,13 +859,13 @@
                 <span class="speaker-meridiem">AM</span>
               </time>
               <article class="speaker-card">
-                <img src="./assets/images/speakers/p4.jpg" width="414" height="529" alt="" loading="lazy" />
+                <img src="./assets/images/speakers/Thomas Arturo Sorza Sierra.jpg" width="400" height="400" alt="" loading="lazy" />
                 <div class="speaker-details">
-                  <span class="badge badge-accent">Grado académico por confirmar</span>
-                  <h3>Nombre completo del ponente</h3>
-                  <p class="speaker-topic"><strong>Tema:</strong> Por confirmar</p>
+                  <span class="badge badge-accent">Ingeniero de Sistemas y Computación · Colombia</span>
+                  <h3>Thomas Arturo Sorza Sierra</h3>
+                  <p class="speaker-topic"><strong>Tema:</strong> Swappings blockchain</p>
                   <p class="speaker-description">
-                    La descripción profesional y experiencia del ponente se publicarán próximamente.
+                    Ingeniero de Sistemas y Computación de Colombia.
                   </p>
                   <div class="speaker-socials" aria-label="Redes del ponente">
                     <span

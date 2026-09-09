@@ -6,7 +6,11 @@
   const viewport = story.querySelector("[data-speaker-story-viewport]");
   const track = story.querySelector("[data-speaker-story-track]");
   const title = story.querySelector("[data-speaker-story-title]");
-  const current = story.querySelector("[data-speaker-story-current]");
+  const header = story.querySelector(".speaker-story-header");
+  const headerCopy = header?.firstElementChild;
+  const kicker = header?.querySelector(".section-kicker");
+  const previousButton = story.querySelector("[data-speaker-story-prev]");
+  const nextButton = story.querySelector("[data-speaker-story-next]");
   const cards = [...story.querySelectorAll("[data-speaker-story-card]")];
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
@@ -21,6 +25,9 @@
   let renderedShift = 0;
   let targetPhrase = 0;
   let renderedPhrase = 0;
+  let expandedViewportTop = 290;
+  let collapsedViewportTop = 220;
+  let headingLift = 0;
   let previousFrameTime = performance.now();
 
   const clamp = (value, minimum = 0, maximum = 1) =>
@@ -183,8 +190,36 @@
       else card.removeAttribute("aria-current");
     });
 
-    if (current) current.textContent = String(activeIndex + 1).padStart(2, "0");
+    if (previousButton) previousButton.disabled = activeIndex === 0;
+    if (nextButton) nextButton.disabled = activeIndex === cards.length - 1;
     targetPhrase = activeIndex;
+    if (reducedMotion.matches) {
+      renderedPhrase = activeIndex;
+      updateTitleMorph(activeIndex / Math.max(1, cards.length - 1));
+    }
+  }
+
+  function goToCard(index) {
+    const safeIndex = Math.round(clamp(index, 0, cards.length - 1));
+    const card = cards[safeIndex];
+    const centeredShift = clamp(
+      card.offsetLeft + card.offsetWidth / 2 - viewport.clientWidth / 2,
+      0,
+      maximumShift
+    );
+
+    if (reducedMotion.matches) {
+      viewport.scrollTo({ left: centeredShift, behavior: "smooth" });
+      return;
+    }
+
+    const scrollableHeight = Math.max(1, story.offsetHeight - stage.offsetHeight);
+    const progress = maximumShift > 0 ? centeredShift / maximumShift : 0;
+    const storyTop = window.scrollY + story.getBoundingClientRect().top;
+    window.scrollTo({
+      top: storyTop + progress * scrollableHeight,
+      behavior: "smooth"
+    });
   }
 
   function getCenteredCardIndex(shift) {
@@ -212,6 +247,9 @@
     const storyBounds = story.getBoundingClientRect();
     const scrollableHeight = Math.max(1, story.offsetHeight - stage.offsetHeight);
     const progress = Math.min(1, Math.max(0, -storyBounds.top / scrollableHeight));
+    const headerCollapse = smoothstep(0.015, 0.18, progress);
+    const viewportTop = expandedViewportTop
+      + (collapsedViewportTop - expandedViewportTop) * headerCollapse;
     const elapsed = Math.min(64, Math.max(0, frameTime - previousFrameTime));
     const horizontalEase = 1 - Math.exp(-elapsed / 92);
     previousFrameTime = frameTime;
@@ -219,7 +257,6 @@
     targetShift = maximumShift * progress;
     renderedShift += (targetShift - renderedShift) * horizontalEase;
 
-    const visualProgress = maximumShift > 0 ? renderedShift / maximumShift : 0;
     const activeCardIndex = getCenteredCardIndex(renderedShift);
     setActiveCard(activeCardIndex);
 
@@ -230,7 +267,11 @@
       : Math.sign(phraseDistance) * phraseStep;
 
     track.style.transform = `translate3d(${-renderedShift}px, 0, 0)`;
-    stage.style.setProperty("--story-progress", visualProgress);
+    stage.style.setProperty("--story-header-collapse", headerCollapse.toFixed(4));
+    stage.style.setProperty("--story-header-blur", `${(headerCollapse * 12).toFixed(2)}px`);
+    stage.style.setProperty("--story-kicker-shift", `${(headerCollapse * -24).toFixed(2)}px`);
+    stage.style.setProperty("--story-heading-shift", `${(headerCollapse * -headingLift).toFixed(2)}px`);
+    stage.style.setProperty("--story-viewport-top", `${viewportTop.toFixed(2)}px`);
     updateTitleMorph(renderedPhrase / Math.max(1, cards.length - 1));
 
     const horizontalIsMoving = Math.abs(targetShift - renderedShift) > 0.08;
@@ -243,9 +284,16 @@
     frame = window.requestAnimationFrame(update);
   }
 
+  previousButton?.addEventListener("click", () => goToCard(activeIndex - 1));
+  nextButton?.addEventListener("click", () => goToCard(activeIndex + 1));
+  viewport.addEventListener("scroll", () => {
+    if (reducedMotion.matches) setActiveCard(getCenteredCardIndex(viewport.scrollLeft));
+  }, { passive: true });
+
   function measure() {
     scatterScale = clamp(parseFloat(window.getComputedStyle(title).fontSize) / 60, 0.72, 1.2);
     measureTitleBox();
+    maximumShift = Math.max(0, track.scrollWidth - viewport.clientWidth);
 
     if (reducedMotion.matches) {
       story.classList.remove("is-enhanced");
@@ -261,7 +309,15 @@
     }
 
     story.classList.add("is-enhanced");
-    maximumShift = Math.max(0, track.scrollWidth - viewport.clientWidth);
+    const stageHeight = stage.clientHeight;
+    const kickerStyle = kicker ? window.getComputedStyle(kicker) : null;
+    const kickerMargin = kickerStyle ? parseFloat(kickerStyle.marginBottom) || 0 : 0;
+    headingLift = Math.min(76, (kicker?.offsetHeight ?? 0) + kickerMargin);
+    const headerBottom = (header?.offsetTop ?? stageHeight * 0.12)
+      + (headerCopy?.offsetHeight ?? stageHeight * 0.2);
+    expandedViewportTop = clamp(headerBottom + 24, 220, 340);
+    collapsedViewportTop = clamp(expandedViewportTop - headingLift, 170, expandedViewportTop);
+    stage.style.setProperty("--story-viewport-top", `${expandedViewportTop}px`);
     targetShift = maximumShift * clamp(-story.getBoundingClientRect().top /
       Math.max(1, story.offsetHeight - stage.offsetHeight));
     renderedShift = clamp(renderedShift, 0, maximumShift);
