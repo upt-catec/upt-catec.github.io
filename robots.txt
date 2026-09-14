@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://srg-cp.github.io/catec-epis/sitemap.xml
+Sitemap: https://upt-catec.github.io/sitemap.xml

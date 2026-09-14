@@ -91,6 +91,8 @@ const requiredFiles = [
 
 const failures = [];
 const html = readFileSync("index.html", "utf8");
+const officialUrl = "https://upt-catec.github.io/";
+const legacyUrl = "https://srg-cp.github.io/catec-epis/";
 
 for (const file of requiredFiles) {
   if (!existsSync(file)) failures.push(`Falta el archivo requerido: ${file}`);
@@ -108,8 +110,25 @@ const checks = [
   [/src="\.\/js\/modules\/header-scroll\.js"/, "No se enlazó el módulo del header"]
 ];
 
+const seoChecks = [
+  [html, `rel="canonical" href="${officialUrl}"`, "La URL canónica no es la oficial"],
+  [html, `property="og:url" content="${officialUrl}"`, "La URL de Open Graph no es la oficial"],
+  [readFileSync("robots.txt", "utf8"), `${officialUrl}sitemap.xml`, "robots.txt no apunta al sitemap oficial"],
+  [readFileSync("sitemap.xml", "utf8"), `<loc>${officialUrl}</loc>`, "El sitemap no contiene la URL oficial"]
+];
+
 for (const [pattern, message] of checks) {
   if (!pattern.test(html)) failures.push(message);
+}
+
+for (const [content, expected, message] of seoChecks) {
+  if (!content.includes(expected)) failures.push(message);
+}
+
+for (const publicFile of ["index.html", "404.html", "robots.txt", "sitemap.xml", "manifest.webmanifest"]) {
+  if (readFileSync(publicFile, "utf8").includes(legacyUrl)) {
+    failures.push(`${publicFile}: todavía contiene la URL pública anterior`);
+  }
 }
 
 const h1Count = (html.match(/<h1[\s>]/g) ?? []).length;
@@ -172,7 +191,9 @@ for (const match of html.matchAll(/<script type="application\/ld\+json">([\s\S]*
 }
 
 try {
-  JSON.parse(readFileSync("manifest.webmanifest", "utf8"));
+  const manifest = JSON.parse(readFileSync("manifest.webmanifest", "utf8"));
+  if (manifest.start_url !== "/") failures.push("El start_url del manifest debe ser /");
+  if (manifest.scope !== "/") failures.push("El scope del manifest debe ser /");
 } catch (error) {
   failures.push(`Manifest inválido: ${error.message}`);
 }

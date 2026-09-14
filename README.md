@@ -56,11 +56,13 @@ El flujo `.github/workflows/deploy-pages.yml` publica automáticamente el sitio 
 
 En GitHub se debe seleccionar **Settings → Pages → Source → GitHub Actions**.
 
-La URL esperada es:
+La URL oficial es:
 
 ```text
-https://srg-cp.github.io/catec-epis/
+https://upt-catec.github.io/
 ```
+
+El flujo también se ejecuta al actualizar `master`, que es la rama de producción.
 
 ## Información pendiente
 
@@ -74,15 +76,3 @@ Antes de solicitar indexación en Google deben reemplazarse los textos provision
 - Redes sociales oficiales.
 - Datos estructurados `Event`.
 - Imagen horizontal para compartir en redes sociales.
-
-## Cambio a dominio personalizado
-
-Si se adquiere un dominio, deben actualizarse todas las apariciones de `https://srg-cp.github.io/catec-epis/` en:
-
-- `index.html`
-- `robots.txt`
-- `sitemap.xml`
-- `manifest.webmanifest`
-- `404.html`
-
-También se debe añadir el archivo `CNAME` con el dominio definitivo y configurarlo en GitHub Pages.
