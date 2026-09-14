@@ -45,7 +45,7 @@
 
   const measureStoryCopyTravel = () => {
     const baseTravel = window.innerWidth <= 760
-      ? Math.min(180, window.innerHeight * 0.28)
+      ? Math.min(110, window.innerHeight * 0.17)
       : Math.min(390, window.innerHeight * 0.44);
 
     if (!storyCopy || !storyDescription || window.innerWidth <= 760) {
@@ -90,7 +90,7 @@
       Math.floor(narrativeProgress * storyPosters.length)
     );
     transition.style.setProperty("--solar-story-progress", progress.toFixed(4));
-    storyCopy?.style.setProperty(
+    transition.style.setProperty(
       "--solar-story-shift",
       `${(-storyCopyTravel * narrativeProgress).toFixed(2)}px`
     );

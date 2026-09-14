@@ -31,9 +31,11 @@
   let collapsedViewportTop = 220;
   let headingLift = 0;
   let previousFrameTime = performance.now();
+  let titleTypingCancelled = false;
 
   const clamp = (value, minimum = 0, maximum = 1) =>
     Math.min(maximum, Math.max(minimum, value));
+  const isCompactLayout = () => window.innerWidth <= 760;
 
   function smoothstep(start, end, value) {
     const progress = clamp((value - start) / (end - start));
@@ -114,7 +116,7 @@
       ...titleLayers.map((layer) => layer.element.offsetHeight),
       title.offsetHeight
     );
-    if (naturalHeight > 0) title.style.height = `${naturalHeight}px`;
+    if (!isCompactLayout() && naturalHeight > 0) title.style.height = `${naturalHeight}px`;
 
     titleLayers.forEach((layer) => {
       const layerWidth = Math.max(1, layer.element.clientWidth);
@@ -158,6 +160,14 @@
   function updateTitleMorph(progress) {
     if (titleLayers.length === 0) return;
 
+    if (progress > 0.001 && !titleTypingCancelled) {
+      titleTypingCancelled = true;
+      titleLayers[0].glyphs.forEach((glyph) => {
+        glyph.element.classList.remove("speaker-story-letter-awaiting");
+        glyph.mask.classList.remove("is-typing-current");
+      });
+    }
+
     titleLayers.forEach((layer) => {
       layer.element.style.visibility = "hidden";
     });
@@ -185,10 +195,18 @@
     incomingLayer.element.style.visibility = "visible";
     animateLayer(outgoingLayer, segmentProgress, false);
     animateLayer(incomingLayer, incomingProgress, true);
+
+    if (isCompactLayout()) {
+      const minimumHeight = parseFloat(window.getComputedStyle(title).fontSize) * 2.15;
+      const heightProgress = smoothstep(0.12, 0.88, segmentProgress);
+      const currentHeight = outgoingLayer.element.offsetHeight
+        + (incomingLayer.element.offsetHeight - outgoingLayer.element.offsetHeight) * heightProgress;
+      title.style.height = `${Math.max(minimumHeight, currentHeight)}px`;
+    }
   }
 
   function prepareFirstTitleTypewriter() {
-    if (reducedMotion.matches || titleLayers.length === 0) return;
+    if (reducedMotion.matches || isCompactLayout() || titleLayers.length === 0) return;
 
     const glyphs = titleLayers[0].glyphs;
     glyphs.forEach((glyph) => glyph.element.classList.add("speaker-story-letter-awaiting"));
@@ -199,6 +217,8 @@
 
     const revealNextGlyph = () => {
       previousMask?.classList.remove("is-typing-current");
+
+      if (titleTypingCancelled) return;
 
       if (currentIndex >= glyphs.length) return;
 
@@ -306,7 +326,7 @@
     const scrollOffset = clamp(-storyBounds.top, 0, scrollableHeight);
     const progress = scrollOffset / scrollableHeight;
     const headerCollapse = smoothstep(0.015, 0.18, progress);
-    const viewportTop = expandedViewportTop
+    let viewportTop = expandedViewportTop
       + (collapsedViewportTop - expandedViewportTop) * headerCollapse;
     const elapsed = Math.min(64, Math.max(0, frameTime - previousFrameTime));
     const horizontalEase = 1 - Math.exp(-elapsed / 92);
@@ -315,7 +335,7 @@
     targetShift = maximumShift * progress;
     renderedShift += (targetShift - renderedShift) * horizontalEase;
 
-    const activeCardIndex = progress > 0.002
+    const activeCardIndex = isCompactLayout() || progress > 0.002
       ? getCenteredCardIndex(renderedShift)
       : -1;
     setActiveCard(activeCardIndex);
@@ -331,8 +351,22 @@
     stage.style.setProperty("--story-header-blur", `${(headerCollapse * 12).toFixed(2)}px`);
     stage.style.setProperty("--story-kicker-shift", `${(headerCollapse * -24).toFixed(2)}px`);
     stage.style.setProperty("--story-heading-shift", `${(headerCollapse * -headingLift).toFixed(2)}px`);
-    stage.style.setProperty("--story-viewport-top", `${viewportTop.toFixed(2)}px`);
     updateTitleMorph(renderedPhrase / Math.max(1, titleLayers.length - 1));
+
+    if (isCompactLayout()) {
+      const stageTop = stage.getBoundingClientRect().top;
+      const copyBottom = (headerCopy?.getBoundingClientRect().bottom ?? stageTop + 220) - stageTop;
+      const controlsBottom = (header?.querySelector(".speaker-story-controls")
+        ?.getBoundingClientRect().bottom ?? stageTop) - stageTop;
+      const maximumViewportTop = Math.min(360, stage.clientHeight * 0.52);
+      viewportTop = clamp(
+        Math.max(copyBottom, controlsBottom) + 24,
+        190,
+        maximumViewportTop
+      );
+    }
+
+    stage.style.setProperty("--story-viewport-top", `${viewportTop.toFixed(2)}px`);
 
     const horizontalIsMoving = Math.abs(targetShift - renderedShift) > 0.08;
     const titleIsMoving = Math.abs(targetPhrase - renderedPhrase) > 0.001;
@@ -374,6 +408,10 @@
     }
 
     story.classList.add("is-enhanced");
+    if (isCompactLayout() && activeIndex < 0) {
+      setActiveCard(0);
+      renderedPhrase = targetPhrase;
+    }
     const stageHeight = stage.clientHeight;
     const kickerStyle = kicker ? window.getComputedStyle(kicker) : null;
     const kickerMargin = kickerStyle ? parseFloat(kickerStyle.marginBottom) || 0 : 0;
@@ -398,7 +436,8 @@
 
   prepareTitleLayers();
   prepareFirstTitleTypewriter();
-  setActiveCard(-1);
-  updateTitleMorph(0);
+  setActiveCard(isCompactLayout() ? 0 : -1);
+  if (isCompactLayout()) renderedPhrase = targetPhrase;
+  updateTitleMorph(renderedPhrase / Math.max(1, titleLayers.length - 1));
   measure();
 })();

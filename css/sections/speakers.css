@@ -544,8 +544,14 @@
   }
 
   .speaker-story-header {
+    flex-direction: column;
     align-items: start;
-    gap: 18px;
+    gap: 12px;
+  }
+
+  .speaker-story-header > div:first-child {
+    width: 100%;
+    flex: 0 1 auto;
   }
 
   .speaker-story h2 {
@@ -554,7 +560,8 @@
   }
 
   .speaker-story-controls {
-    margin-top: 24px;
+    align-self: flex-end;
+    margin-top: 0;
     margin-right: 0;
     margin-bottom: 0;
   }

@@ -244,9 +244,10 @@
   }
 
   .hero-hand {
-    bottom: 42px;
+    top: clamp(320px, calc(428px - 25vw), 350px);
+    bottom: auto;
     left: -14px;
-    width: 250px;
+    width: 145px;
     opacity: 1;
   }
 
@@ -266,7 +267,9 @@
   }
 
   .hero-actions {
-    max-width: max-content;
+    width: 100%;
+    max-width: none;
+    justify-content: center;
     margin-top: 28px;
   }
 
@@ -302,7 +305,8 @@
   }
 
   .hero-art {
-    min-height: 440px;
+    min-height: 390px;
+    margin-top: 38px;
   }
 }
 

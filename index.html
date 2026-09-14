@@ -157,22 +157,10 @@
           </span>
         </a>
 
-        <button
-          class="menu-toggle"
-          type="button"
-          aria-expanded="false"
-          aria-controls="site-navigation"
-          data-menu-toggle
-        >
-          <span class="sr-only">Abrir menú</span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </button>
-
         <nav id="site-navigation" class="site-nav" aria-label="Navegación principal" data-menu>
           <div class="nav-links">
             <a href="#ponentes">Ponentes</a>
-            <a href="#evento">El evento</a>
+            <a href="#evento">Acerca de</a>
             <a href="#inscripciones">Inscripciones</a>
             <a href="#agenda">Agenda</a>
           </div>
@@ -182,6 +170,32 @@
             target="_blank"
             rel="noopener noreferrer"
           >Inscríbete aquí</a>
+        </nav>
+
+        <nav class="mobile-quick-nav" aria-label="Accesos principales">
+          <a href="#ponentes" aria-label="Ir a Ponentes">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="8" r="3.25"></circle>
+              <circle cx="5.5" cy="10" r="2.25"></circle>
+              <circle cx="18.5" cy="10" r="2.25"></circle>
+              <path d="M6.5 19v-1.25A5.5 5.5 0 0 1 12 12.25a5.5 5.5 0 0 1 5.5 5.5V19M3 18v-.75a3.5 3.5 0 0 1 3.5-3.5M21 18v-.75a3.5 3.5 0 0 0-3.5-3.5"></path>
+            </svg>
+            <span class="sr-only">Ponentes</span>
+          </a>
+          <a href="#agenda" aria-label="Ir a Agenda">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="16" rx="3"></rect>
+              <path d="M8 2.5v5M16 2.5v5M3 10h18M7.5 14h3M13.5 14h3M7.5 17.5h3"></path>
+            </svg>
+            <span class="sr-only">Agenda</span>
+          </a>
+          <a class="mobile-quick-nav-cta" href="#inscripciones" aria-label="Ir a Inscripciones">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M3 7.5A2.5 2.5 0 0 0 5.5 10 2.5 2.5 0 0 0 3 12.5V17a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-4.5a2.5 2.5 0 0 0 0-5V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v.5Z"></path>
+              <path d="m9 12.5 2 2 4-4"></path>
+            </svg>
+            <span class="sr-only">Inscripciones</span>
+          </a>
         </nav>
       </div>
     </header>
@@ -644,7 +658,7 @@
       <section id="evento" class="section about" aria-labelledby="about-title">
         <div class="container">
           <div class="section-heading about-heading">
-            <p class="section-kicker">El evento</p>
+            <p class="section-kicker">Acerca de</p>
             <h2 id="about-title">Ideas que salen del aula y se conectan con el mundo.</h2>
             <p
               class="about-description"
@@ -678,11 +692,8 @@
             </article>
             <article class="value-card value-card-wide">
               <div class="card-icon" aria-hidden="true">✦</div>
-              <h3>Un espacio abierto para todos</h3>
-              <p>
-                Estudiantes, profesionales, emprendedores y personas con curiosidad por la
-                tecnología pueden aprender, compartir ideas y construir nuevas conexiones.
-              </p>
+              <h3>Abierto para todos</h3>
+              <p>Un encuentro para aprender, compartir ideas y construir nuevas conexiones.</p>
             </article>
           </div>
         </div>
@@ -1095,7 +1106,7 @@
         <p class="footer-intro">Conocimiento que conecta.</p>
         <nav class="footer-links" aria-label="Enlaces del pie de página">
           <a href="#ponentes">Ponentes</a>
-          <a href="#evento">El evento</a>
+          <a href="#evento">Acerca de</a>
           <a href="#agenda">Agenda</a>
         </nav>
       </div>
@@ -1133,7 +1144,6 @@
     </footer>
 
     <script src="./js/modules/header-scroll.js" defer></script>
-    <script src="./js/modules/mobile-menu.js" defer></script>
     <script src="./js/modules/sponsor-marquee.js" defer></script>
     <script src="./js/modules/speaker-story.js" defer></script>
     <script src="./js/modules/agenda-tabs.js" defer></script>

@@ -73,31 +73,46 @@
 
 @media (max-width: 760px) {
   .value-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 8px;
     padding: 8px;
-    border-radius: 24px;
+    border-radius: 20px;
   }
 
   .value-card {
-    min-height: 210px;
-    padding: 28px;
-    border-radius: 18px;
+    min-height: 170px;
+    padding: 18px;
+    border-radius: 14px;
   }
 
   .card-icon {
-    margin-bottom: 34px;
+    min-height: 26px;
+    margin-bottom: 18px;
+    font-size: 26px;
+  }
+
+  .value-card h3 {
+    margin-bottom: 8px;
+    font-size: 17px;
+  }
+
+  .value-card p {
+    font-size: 12.5px;
+    line-height: 1.4;
   }
 
   .value-card-wide {
     display: flex;
-    min-height: 210px;
+    min-height: 170px;
+    grid-column: auto;
+    gap: 0;
   }
 
   .value-card-wide .card-icon {
-    margin-bottom: 34px;
+    margin-bottom: 18px;
   }
 
   .value-card-wide h3 {
-    margin-bottom: 12px;
+    margin-bottom: 8px;
   }
 }

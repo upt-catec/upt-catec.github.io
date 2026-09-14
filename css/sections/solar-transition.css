@@ -394,7 +394,7 @@
 
 @media (max-width: 760px) {
   .solar-transition {
-    height: 244svh;
+    height: 205svh;
   }
 
   .solar-transition-orbit {
@@ -439,6 +439,8 @@
     width: min(100%, 520px);
     justify-self: center;
     margin-top: 0;
+    transform: translate3d(0, var(--solar-story-shift, 0), 0);
+    will-change: transform;
   }
 
   .solar-story-poster img {

@@ -478,15 +478,15 @@
 
 @media (max-width: 760px) {
   .event-poster-rotator {
-    --back-x: 28px;
+    --back-x: 24px;
     --back-y: -10px;
     --back-z: -40px;
 
-    width: min(100%, 250px);
+    width: min(100%, 210px);
   }
 
   .event-poster-rotator[data-direction="prev"] {
-    --back-x: -28px;
+    --back-x: -24px;
   }
 
   .event-poster-frame {

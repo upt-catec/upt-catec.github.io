@@ -20,7 +20,25 @@
 }
 
 @media (max-width: 760px) {
+  .about {
+    padding-block: 64px;
+  }
+
   .about-heading {
-    margin-bottom: 32px;
+    margin-bottom: 24px;
+  }
+
+  .about .section-kicker {
+    margin-bottom: 18px;
+  }
+
+  .about-heading h2 {
+    font-size: clamp(32px, 9vw, 42px);
+  }
+
+  .about-heading > .about-description {
+    margin-top: 14px;
+    font-size: 14px;
+    line-height: 1.5;
   }
 }
