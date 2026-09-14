@@ -1,78 +1,108 @@
+<div align="center">
+
 # CATEC 2026-II
 
-Sitio oficial de CATEC 2026-II, evento académico y tecnológico organizado por estudiantes de la Escuela Profesional de Ingeniería de Sistemas de la Universidad Privada de Tacna.
+Sitio web oficial del evento de capacitación tecnológica organizado por la
+Escuela Profesional de Ingeniería de Sistemas de la Universidad Privada de Tacna.
 
-## Desarrollo local
+[![Sitio web](https://img.shields.io/badge/Sitio_web-upt--catec.github.io-6C63FF?style=for-the-badge&logo=githubpages&logoColor=white)](https://upt-catec.github.io/)
+[![GitHub](https://img.shields.io/badge/GitHub-srg--cp-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/srg-cp)
 
-El sitio no requiere instalar dependencias. Puede abrirse directamente, aunque es preferible servirlo con un servidor HTTP local:
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=111)
+![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-222222?style=flat-square&logo=githubpages&logoColor=white)
+
+</div>
+
+## Acerca del proyecto
+
+La web reúne la información de CATEC 2026-II en una experiencia responsive, accesible y
+optimizada para dispositivos móviles. Presenta el evento, sus actividades, agenda, ponentes,
+inscripciones, ubicación, antecedentes y patrocinadores.
+
+El proyecto está construido con tecnologías web nativas, sin frameworks ni dependencias de
+ejecución, para ofrecer una carga rápida y facilitar su mantenimiento.
+
+## Características
+
+- Diseño responsive para escritorio, tablet y móvil.
+- Navegación adaptable con desplazamiento entre secciones.
+- Agenda interactiva organizada por actividades.
+- Perfiles y documentos informativos de los ponentes.
+- Material gráfico y documentos descargables del evento.
+- Animaciones progresivas y componentes interactivos en JavaScript.
+- Optimización SEO mediante canonical, Open Graph, Twitter Cards y JSON-LD.
+- `robots.txt`, sitemap, manifest y página 404 personalizada.
+- Validación automática de estructura, recursos locales y metadatos.
+- Despliegue automatizado mediante GitHub Actions y GitHub Pages.
+
+## Tecnologías
+
+- HTML5 semántico.
+- CSS3 modular con variables de diseño.
+- JavaScript modular.
+- GitHub Actions.
+- GitHub Pages.
+
+## Estructura
+
+```text
+.
+├── .github/workflows/    # Automatización del despliegue
+├── assets/
+│   ├── documents/        # Documentos de los ponentes
+│   └── images/           # Identidad, banners, ponentes y patrocinadores
+├── css/
+│   ├── base/             # Estilos base y tipografías
+│   ├── components/       # Componentes reutilizables
+│   ├── layout/           # Estructura general
+│   ├── sections/         # Estilos de cada sección
+│   ├── settings/         # Variables y tokens visuales
+│   └── utilities/        # Utilidades y accesibilidad
+├── fonts/                # Fuentes locales
+├── js/modules/           # Comportamientos e interacciones
+├── scripts/validate.mjs  # Validación del sitio
+├── 404.html
+├── index.html
+├── manifest.webmanifest
+├── robots.txt
+└── sitemap.xml
+```
+
+## Ejecución local
+
+No es necesario instalar dependencias. Puede utilizarse cualquier servidor HTTP local:
 
 ```bash
 npx serve .
 ```
 
-También puede utilizarse la extensión Live Server de Visual Studio Code.
+Después, abre la dirección indicada por el servidor en el navegador. También puede utilizarse
+Live Server desde Visual Studio Code.
 
-Para ejecutar la validación local de estructura y SEO:
+## Validación
+
+Para comprobar la estructura, los recursos, los metadatos SEO y los datos estructurados:
 
 ```bash
 node scripts/validate.mjs
 ```
 
-## Estructura del frontend
-
-El proyecto mantiene HTML, CSS y JavaScript vanilla, organizados por responsabilidad:
+Una ejecución correcta muestra:
 
 ```text
-assets/
-├── documents/
-│   └── speakers/      # CV y documentos fuente de los ponentes
-└── images/
-    ├── antecedentes/  # Material visual de ediciones anteriores
-    ├── brand/         # Logotipos e identidad
-    ├── speakers/      # Fotografías de ponentes
-    └── sponsors/      # Logotipos de patrocinadores
-css/
-├── base/          # Normalización de elementos HTML
-├── components/    # Una hoja por componente visual reutilizable
-├── layout/        # Contenedores y estructura común de secciones
-├── pages/         # Estilos exclusivos de una página
-├── sections/      # Una hoja por sección de la portada
-├── settings/      # Variables de diseño
-├── utilities/     # Accesibilidad y ayudas globales
-└── main.css       # Punto de entrada y orden de la cascada
-js/
-└── modules/       # Un script independiente por comportamiento
+Validación completada: estructura, SEO y recursos locales correctos.
 ```
 
-Los archivos HTML solo enlazan los puntos de entrada. Para agregar una sección o componente,
-cree su archivo en la carpeta correspondiente e impórtelo desde `css/main.css`; para agregar
-un comportamiento, añada un script autocontenido en `js/modules/` y enlácelo con `defer`.
-Las adaptaciones responsive viven junto a cada componente para mantener todos sus estilos
-encapsulados en un solo lugar.
+## Despliegue
 
-## Publicación
+La rama `master` se publica automáticamente mediante el workflow de GitHub Pages. El despliegue
+también puede iniciarse manualmente desde la pestaña **Actions** del repositorio.
 
-El flujo `.github/workflows/deploy-pages.yml` publica automáticamente el sitio al enviar un tag de versión como `v1.0.0`. También puede ejecutarse manualmente desde GitHub Actions.
+**Sitio oficial:** [upt-catec.github.io](https://upt-catec.github.io/)
 
-En GitHub se debe seleccionar **Settings → Pages → Source → GitHub Actions**.
+## Licencia
 
-La URL oficial es:
-
-```text
-https://upt-catec.github.io/
-```
-
-El flujo también se ejecuta al actualizar `master`, que es la rama de producción.
-
-## Información pendiente
-
-Antes de solicitar indexación en Google deben reemplazarse los textos provisionales con información confirmada:
-
-- Fecha y horario.
-- Modalidad y dirección.
-- Enlace y condiciones de inscripción.
-- Agenda completa.
-- Ponentes y biografías.
-- Redes sociales oficiales.
-- Datos estructurados `Event`.
-- Imagen horizontal para compartir en redes sociales.
+Los recursos gráficos, fotografías, documentos e identidad visual pertenecen a sus respectivos
+autores y a la organización de CATEC EPIS UPT.
