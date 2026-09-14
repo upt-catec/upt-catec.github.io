@@ -4,7 +4,10 @@
   const hero = document.querySelector(".hero");
   const heroSun = hero?.querySelector("[data-hero-sun]");
   const storyCopy = transition.querySelector(".solar-story-copy");
+  const storyDescription = transition.querySelector(".solar-story-description");
   const storySteps = [...transition.querySelectorAll("[data-solar-story-step]")];
+  const storyPosters = [...transition.querySelectorAll("[data-solar-story-poster]")];
+  const storyPosterDots = [...transition.querySelectorAll(".solar-story-archive-index span")];
 
   if (!transition || !orbit || !hero || !heroSun) return;
 
@@ -17,6 +20,8 @@
   let targetStoryProgress = 0;
   let currentStoryProgress = 0;
   let activeStoryStep = -1;
+  let activePosterIndex = -1;
+  let storyCopyTravel = 390;
 
   const clamp = (value, minimum = 0, maximum = 1) =>
     Math.min(maximum, Math.max(minimum, value));
@@ -38,15 +43,58 @@
     return clamp(-transitionBounds.top / scrollDistance);
   };
 
+  const measureStoryCopyTravel = () => {
+    const baseTravel = window.innerWidth <= 760
+      ? Math.min(180, window.innerHeight * 0.28)
+      : Math.min(390, window.innerHeight * 0.44);
+
+    if (!storyCopy || !storyDescription || window.innerWidth <= 760) {
+      storyCopyTravel = baseTravel;
+      return;
+    }
+
+    const contentBottom = storyCopy.offsetTop
+      + storyDescription.offsetTop
+      + storyDescription.offsetHeight;
+    const visibilityTravel = contentBottom - (window.innerHeight - 72);
+    storyCopyTravel = Math.max(baseTravel, visibilityTravel);
+  };
+
+  const showStoryPoster = (index) => {
+    if (storyPosters.length === 0) return;
+
+    const nextIndex = Math.min(storyPosters.length - 1, Math.max(0, index));
+    if (nextIndex === activePosterIndex) return;
+
+    activePosterIndex = nextIndex;
+    storyPosters.forEach((poster, posterIndex) => {
+      const isActive = posterIndex === activePosterIndex;
+      poster.classList.toggle("is-active", isActive);
+      poster.setAttribute("aria-hidden", String(!isActive));
+    });
+    storyPosterDots.forEach((dot, dotIndex) => {
+      dot.classList.toggle("is-active", dotIndex === activePosterIndex);
+    });
+  };
+
   const renderStory = (progress) => {
     if (storySteps.length === 0) return;
 
-    const copyTravel = window.innerWidth <= 760
-      ? Math.min(180, window.innerHeight * 0.28)
-      : Math.min(390, window.innerHeight * 0.44);
-    const nextStep = Math.min(storySteps.length - 1, Math.floor(progress * storySteps.length));
+    const narrativeProgress = progress;
+    const nextStep = Math.min(
+      storySteps.length - 1,
+      Math.floor(narrativeProgress * storySteps.length)
+    );
+    const nextPoster = Math.min(
+      storyPosters.length - 1,
+      Math.floor(narrativeProgress * storyPosters.length)
+    );
     transition.style.setProperty("--solar-story-progress", progress.toFixed(4));
-    storyCopy?.style.setProperty("--solar-story-shift", `${(-copyTravel * progress).toFixed(2)}px`);
+    storyCopy?.style.setProperty(
+      "--solar-story-shift",
+      `${(-storyCopyTravel * narrativeProgress).toFixed(2)}px`
+    );
+    showStoryPoster(nextPoster);
 
     if (nextStep === activeStoryStep) return;
     activeStoryStep = nextStep;
@@ -137,9 +185,13 @@
   };
 
   window.addEventListener("scroll", updateTarget, { passive: true });
-  window.addEventListener("resize", updateTarget);
+  window.addEventListener("resize", () => {
+    measureStoryCopyTravel();
+    updateTarget();
+  });
   reducedMotion.addEventListener?.("change", handleMotionChange);
 
+  measureStoryCopyTravel();
   targetProgress = getScrollProgress();
   currentProgress = targetProgress;
   targetStoryProgress = getStoryProgress();
