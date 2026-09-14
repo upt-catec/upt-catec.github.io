@@ -24,6 +24,8 @@ El proyecto mantiene HTML, CSS y JavaScript vanilla, organizados por responsabil
 
 ```text
 assets/
+├── documents/
+│   └── speakers/      # CV y documentos fuente de los ponentes
 └── images/
     ├── antecedentes/  # Material visual de ediciones anteriores
     ├── brand/         # Logotipos e identidad

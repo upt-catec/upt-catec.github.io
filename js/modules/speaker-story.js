@@ -16,6 +16,8 @@
 
   if (!stage || !viewport || !track || !title || cards.length === 0) return;
 
+  const introductionTitle = title.textContent.trim() || "Ponentes";
+
   let activeIndex = -1;
   let maximumShift = 0;
   let frame = null;
@@ -59,6 +61,8 @@
   function createTitleLayer(text, phraseIndex) {
     const layer = document.createElement("span");
     layer.className = "speaker-story-title-layer";
+    if (text.length > 78) layer.classList.add("speaker-story-title-layer-long");
+    else if (text.length > 54) layer.classList.add("speaker-story-title-layer-medium");
     const glyphs = [];
 
     text.split(" ").forEach((word, wordIndex, words) => {
@@ -92,8 +96,12 @@
 
   function prepareTitleLayers() {
     title.replaceChildren();
-    titleLayers = cards.map((card, phraseIndex) => {
-      const text = card.dataset.storyTitle ?? "Ponentes de CATEC 2026-II";
+    const phrases = [
+      introductionTitle,
+      ...cards.map((card) => card.dataset.storyTitle ?? "Ponentes")
+    ];
+
+    titleLayers = phrases.map((text, phraseIndex) => {
       const layer = createTitleLayer(text, phraseIndex);
       title.append(layer.element);
       return layer;
@@ -179,23 +187,71 @@
     animateLayer(incomingLayer, incomingProgress, true);
   }
 
+  function prepareFirstTitleTypewriter() {
+    if (reducedMotion.matches || titleLayers.length === 0) return;
+
+    const glyphs = titleLayers[0].glyphs;
+    glyphs.forEach((glyph) => glyph.element.classList.add("speaker-story-letter-awaiting"));
+
+    let started = false;
+    let currentIndex = 0;
+    let previousMask = null;
+
+    const revealNextGlyph = () => {
+      previousMask?.classList.remove("is-typing-current");
+
+      if (currentIndex >= glyphs.length) return;
+
+      const glyph = glyphs[currentIndex];
+      const character = glyph.element.textContent ?? "";
+      glyph.element.classList.remove("speaker-story-letter-awaiting");
+      glyph.mask.classList.add("is-typing-current");
+      previousMask = glyph.mask;
+      currentIndex += 1;
+
+      const delay = /[,.;:!?]/.test(character) ? 45 : 12;
+      window.setTimeout(revealNextGlyph, delay);
+    };
+
+    const startTyping = () => {
+      if (started) return;
+      started = true;
+      revealNextGlyph();
+    };
+
+    if (!("IntersectionObserver" in window)) {
+      startTyping();
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      if (!entries.some((entry) => entry.isIntersecting)) return;
+      observer.disconnect();
+      startTyping();
+    }, { threshold: 0.2 });
+
+    observer.observe(header ?? story);
+  }
+
   function setActiveCard(index) {
     if (index === activeIndex) return;
     activeIndex = index;
 
     cards.forEach((card, cardIndex) => {
       const isActive = cardIndex === activeIndex;
+      const photo = card.querySelector(".speaker-story-photo");
       card.classList.toggle("is-active", isActive);
+      photo?.classList.toggle("speaker-story-photo-natural", isActive);
       if (isActive) card.setAttribute("aria-current", "true");
       else card.removeAttribute("aria-current");
     });
 
-    if (previousButton) previousButton.disabled = activeIndex === 0;
+    if (previousButton) previousButton.disabled = activeIndex <= 0;
     if (nextButton) nextButton.disabled = activeIndex === cards.length - 1;
-    targetPhrase = activeIndex;
+    targetPhrase = activeIndex + 1;
     if (reducedMotion.matches) {
-      renderedPhrase = activeIndex;
-      updateTitleMorph(activeIndex / Math.max(1, cards.length - 1));
+      renderedPhrase = targetPhrase;
+      updateTitleMorph(renderedPhrase / Math.max(1, titleLayers.length - 1));
     }
   }
 
@@ -209,6 +265,7 @@
     );
 
     if (reducedMotion.matches) {
+      setActiveCard(safeIndex);
       viewport.scrollTo({ left: centeredShift, behavior: "smooth" });
       return;
     }
@@ -246,7 +303,8 @@
 
     const storyBounds = story.getBoundingClientRect();
     const scrollableHeight = Math.max(1, story.offsetHeight - stage.offsetHeight);
-    const progress = Math.min(1, Math.max(0, -storyBounds.top / scrollableHeight));
+    const scrollOffset = clamp(-storyBounds.top, 0, scrollableHeight);
+    const progress = scrollOffset / scrollableHeight;
     const headerCollapse = smoothstep(0.015, 0.18, progress);
     const viewportTop = expandedViewportTop
       + (collapsedViewportTop - expandedViewportTop) * headerCollapse;
@@ -257,7 +315,9 @@
     targetShift = maximumShift * progress;
     renderedShift += (targetShift - renderedShift) * horizontalEase;
 
-    const activeCardIndex = getCenteredCardIndex(renderedShift);
+    const activeCardIndex = progress > 0.002
+      ? getCenteredCardIndex(renderedShift)
+      : -1;
     setActiveCard(activeCardIndex);
 
     const phraseDistance = targetPhrase - renderedPhrase;
@@ -272,7 +332,7 @@
     stage.style.setProperty("--story-kicker-shift", `${(headerCollapse * -24).toFixed(2)}px`);
     stage.style.setProperty("--story-heading-shift", `${(headerCollapse * -headingLift).toFixed(2)}px`);
     stage.style.setProperty("--story-viewport-top", `${viewportTop.toFixed(2)}px`);
-    updateTitleMorph(renderedPhrase / Math.max(1, cards.length - 1));
+    updateTitleMorph(renderedPhrase / Math.max(1, titleLayers.length - 1));
 
     const horizontalIsMoving = Math.abs(targetShift - renderedShift) > 0.08;
     const titleIsMoving = Math.abs(targetPhrase - renderedPhrase) > 0.001;
@@ -303,8 +363,13 @@
       renderedShift = 0;
       targetPhrase = 0;
       renderedPhrase = 0;
-      setActiveCard(0);
-      updateTitleMorph(0);
+      const reducedActiveIndex = viewport.scrollLeft > 1
+        ? getCenteredCardIndex(viewport.scrollLeft)
+        : -1;
+      setActiveCard(reducedActiveIndex);
+      targetPhrase = reducedActiveIndex + 1;
+      renderedPhrase = targetPhrase;
+      updateTitleMorph(renderedPhrase / Math.max(1, titleLayers.length - 1));
       return;
     }
 
@@ -318,8 +383,6 @@
     expandedViewportTop = clamp(headerBottom + 24, 220, 340);
     collapsedViewportTop = clamp(expandedViewportTop - headingLift, 170, expandedViewportTop);
     stage.style.setProperty("--story-viewport-top", `${expandedViewportTop}px`);
-    targetShift = maximumShift * clamp(-story.getBoundingClientRect().top /
-      Math.max(1, story.offsetHeight - stage.offsetHeight));
     renderedShift = clamp(renderedShift, 0, maximumShift);
     const breathingRoom = Math.min(window.innerHeight * 0.18, 140);
     const horizontalScrollDistance = maximumShift * 1.3;
@@ -334,7 +397,8 @@
   reducedMotion.addEventListener?.("change", measure);
 
   prepareTitleLayers();
-  setActiveCard(0);
+  prepareFirstTitleTypewriter();
+  setActiveCard(-1);
   updateTitleMorph(0);
   measure();
 })();

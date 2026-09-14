@@ -10,10 +10,7 @@
 @import url("./components/button.css");
 @import url("./components/typewriter.css");
 @import url("./components/hero-posters.css");
-@import url("./components/signal-strip.css");
 @import url("./components/value-card.css");
-@import url("./components/history-carousel.css");
-@import url("./components/status-list.css");
 @import url("./components/agenda-preview.css");
 @import url("./components/badge.css");
 @import url("./components/speaker-schedule.css");
@@ -25,12 +22,13 @@
 @import url("./sections/hero.css");
 @import url("./sections/solar-transition.css");
 @import url("./sections/about.css");
-@import url("./sections/antecedents.css");
-@import url("./sections/event-status.css");
+@import url("./sections/registrations.css");
 @import url("./sections/agenda.css");
 @import url("./sections/speakers.css");
 @import url("./sections/audience.css");
+@import url("./sections/location.css");
 @import url("./sections/sponsors.css");
 @import url("./sections/faq.css");
 @import url("./sections/newsletter.css");
+@import url("./utilities/reveal.css");
 @import url("./utilities/accessibility.css");

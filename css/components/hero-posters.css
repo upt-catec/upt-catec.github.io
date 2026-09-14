@@ -20,8 +20,8 @@
   --spin-skew: 3deg;
 
   position: relative;
-  width: min(100%, 470px);
-  aspect-ratio: 509 / 720;
+  width: min(100%, 340px);
+  aspect-ratio: 1 / 2;
   outline: none;
   perspective: 1200px;
   touch-action: none;
@@ -472,7 +472,7 @@
 
 @media (max-width: 980px) {
   .event-poster-rotator {
-    width: 380px;
+    width: 300px;
   }
 }
 
@@ -482,7 +482,7 @@
     --back-y: -10px;
     --back-z: -40px;
 
-    width: min(100%, 320px);
+    width: min(100%, 250px);
   }
 
   .event-poster-rotator[data-direction="prev"] {

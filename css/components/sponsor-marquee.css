@@ -48,6 +48,10 @@
   animation-duration: 50s;
 }
 
+.sponsor-row-fast .sponsor-track {
+  animation-duration: 41s;
+}
+
 .sponsor-edge-refraction {
   --sponsor-refraction-core: 14px;
   --sponsor-refraction-range: clamp(68px, 6vw, 96px);
@@ -109,12 +113,12 @@
 
 .sponsor-item strong {
   min-width: 0;
-  overflow: hidden;
   font-family: var(--font-display);
   font-size: 19px;
   font-weight: 600;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  line-height: 1.25;
+  overflow-wrap: break-word;
+  white-space: normal;
 }
 
 @keyframes sponsor-marquee {
