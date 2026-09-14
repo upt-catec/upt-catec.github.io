@@ -15,9 +15,6 @@
 @import url("./components/badge.css");
 @import url("./components/speaker-schedule.css");
 @import url("./components/sponsor-marquee.css");
-@import url("./components/audience-list.css");
-@import url("./components/accordion.css");
-@import url("./components/newsletter-card.css");
 @import url("./components/footer.css");
 @import url("./sections/hero.css");
 @import url("./sections/solar-transition.css");
@@ -25,10 +22,7 @@
 @import url("./sections/registrations.css");
 @import url("./sections/agenda.css");
 @import url("./sections/speakers.css");
-@import url("./sections/audience.css");
 @import url("./sections/location.css");
 @import url("./sections/sponsors.css");
-@import url("./sections/faq.css");
-@import url("./sections/newsletter.css");
 @import url("./utilities/reveal.css");
 @import url("./utilities/accessibility.css");

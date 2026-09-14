@@ -19,9 +19,6 @@ const cssFiles = [
   "css/components/badge.css",
   "css/components/speaker-schedule.css",
   "css/components/sponsor-marquee.css",
-  "css/components/audience-list.css",
-  "css/components/accordion.css",
-  "css/components/newsletter-card.css",
   "css/components/footer.css",
   "css/sections/hero.css",
   "css/sections/about.css",
@@ -29,17 +26,12 @@ const cssFiles = [
   "css/sections/event-status.css",
   "css/sections/agenda.css",
   "css/sections/speakers.css",
-  "css/sections/audience.css",
   "css/sections/sponsors.css",
-  "css/sections/faq.css",
-  "css/sections/newsletter.css",
   "css/utilities/accessibility.css",
   "css/pages/error.css"
 ];
 
 const jsFiles = [
-  "js/modules/current-year.js",
-  "js/modules/faq.js",
   "js/modules/header-scroll.js",
   "js/modules/mobile-menu.js",
   "js/modules/sponsor-marquee.js",

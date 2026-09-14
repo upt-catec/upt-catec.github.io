@@ -1,10 +1,32 @@
 .sponsors {
+  --sponsors-footer-transition: clamp(64px, 6vw, 96px);
+
   overflow: hidden;
+  padding-bottom: var(--sponsors-footer-transition);
   background:
     radial-gradient(circle at 82% 14%, rgba(var(--blue-rgb), 0.1), transparent 31%),
     radial-gradient(circle at 12% 82%, rgba(var(--violet-rgb), 0.055), transparent 29%),
     linear-gradient(145deg, #ececea 0%, #e5e6e8 52%, #dfe1e4 100%);
   color: #17191f;
+}
+
+.sponsors::after {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: var(--sponsors-footer-transition);
+  background: linear-gradient(
+    to bottom,
+    rgba(220, 227, 233, 0) 0%,
+    rgba(220, 227, 233, 0.08) 18%,
+    rgba(220, 227, 233, 0.28) 44%,
+    rgba(220, 227, 233, 0.64) 72%,
+    #dce3e9 100%
+  );
+  content: "";
+  pointer-events: none;
 }
 
 .sponsors-heading {

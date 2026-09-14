@@ -28,8 +28,6 @@ La primera versión funcional ya está creada e incluye:
 - Agenda provisional.
 - Ponentes provisionales.
 - Público objetivo.
-- Preguntas frecuentes.
-- Bloque para futuros canales oficiales.
 - Footer institucional.
 - Página 404.
 - Metadatos SEO, canonical y Open Graph.
@@ -45,7 +43,7 @@ La primera versión funcional ya está creada e incluye:
 - `css/main.css`: punto de entrada de los estilos modulares.
 - `css/components/`: estilos de componentes reutilizables.
 - `css/sections/`: estilos separados por sección de la portada.
-- `js/modules/`: scripts independientes para menú móvil, encabezado, año actual y preguntas frecuentes.
+- `js/modules/`: scripts independientes para las interacciones de la portada.
 - `robots.txt`: instrucciones para buscadores.
 - `sitemap.xml`: mapa del sitio.
 - `manifest.webmanifest`: configuración del sitio instalable.

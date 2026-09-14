@@ -35,7 +35,7 @@
     });
   }, {
     threshold: 0.14,
-    rootMargin: "0px 0px -8% 0px",
+    rootMargin: "0px 0px 16% 0px",
   });
 
   elements.forEach((element) => observer.observe(element));

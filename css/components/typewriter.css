@@ -1,21 +1,37 @@
-.typewriter-visual.is-typing::after,
-.typewriter-visual.is-complete::after {
+.typewriter-word {
   display: inline-block;
+}
+
+.typewriter-character {
+  visibility: hidden;
+}
+
+.typewriter-character.is-visible {
+  visibility: visible;
+}
+
+.typewriter-character.is-current {
+  position: relative;
+}
+
+.typewriter-visual.is-typing .typewriter-character.is-current::after,
+.typewriter-visual.is-complete .typewriter-character.is-current::after {
+  position: absolute;
+  bottom: 0;
+  left: calc(100% + 0.04em);
   width: max(2px, 0.035em);
   height: 1em;
-  margin-inline-start: 0.04em;
   border-radius: 999px;
   background: linear-gradient(180deg, var(--acid) 0%, var(--cyan) 52%, var(--violet) 100%);
   box-shadow: 0 0 0.12em rgba(var(--accent-rgb), 0.55);
   content: "";
-  vertical-align: -0.12em;
 }
 
-.typewriter-visual.is-typing::after {
+.typewriter-visual.is-typing .typewriter-character.is-current::after {
   animation: typewriter-caret-pulse 560ms ease-in-out infinite alternate;
 }
 
-.typewriter-visual.is-complete::after {
+.typewriter-visual.is-complete .typewriter-character.is-current::after {
   animation: typewriter-caret-out 280ms ease forwards;
 }
 
@@ -32,7 +48,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .typewriter-visual::after {
+  .typewriter-character.is-current::after {
     display: none;
   }
 }

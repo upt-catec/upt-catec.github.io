@@ -136,15 +136,8 @@
         <circle cx="4" cy="4" r="2"></circle>
         <path d="M2 9h4v12H2zM10 9h4v2a5 5 0 0 1 8 4v6h-4v-6a2 2 0 0 0-4 0v6h-4z"></path>
       </symbol>
-      <symbol id="icon-website" viewBox="0 0 24 24">
-        <circle cx="12" cy="12" r="9"></circle>
-        <path d="M3 12h18M12 3c2.4 2.5 3.7 5.5 3.7 9S14.4 18.5 12 21c-2.4-2.5-3.7-5.5-3.7-9S9.6 5.5 12 3z"></path>
-      </symbol>
       <symbol id="icon-cv" viewBox="0 0 24 24">
         <path d="M6 2h8l4 4v16H6zM14 2v5h5M9 12h6M9 16h6"></path>
-      </symbol>
-      <symbol id="icon-edition" viewBox="0 0 24 24">
-        <path d="M12 2 3 9l9 7 7.36-5.73L21 9l-9-7Zm0 11.47L6.26 9 12 4.53 17.74 9 12 13.47Zm0 5.07-7.37-5.75L3 14.06l9 7 9-7-1.63-1.27L12 18.54Z"></path>
       </symbol>
       <symbol id="icon-location" viewBox="0 0 24 24">
         <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z"></path>
@@ -180,10 +173,15 @@
           <div class="nav-links">
             <a href="#ponentes">Ponentes</a>
             <a href="#evento">El evento</a>
+            <a href="#inscripciones">Inscripciones</a>
             <a href="#agenda">Agenda</a>
-            <a href="#preguntas">Preguntas</a>
           </div>
-          <a class="nav-cta" href="#novedades">Mantente al día</a>
+          <a
+            class="nav-cta"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSfhjd4A6q0OVqbRlk4yIl4yxkeoU6itNrdqezM-aAzAsQc5oA/viewform"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Inscríbete aquí</a>
         </nav>
       </div>
     </header>
@@ -648,7 +646,13 @@
           <div class="section-heading about-heading">
             <p class="section-kicker">El evento</p>
             <h2 id="about-title">Ideas que salen del aula y se conectan con el mundo.</h2>
-            <p class="about-description">
+            <p
+              class="about-description"
+              data-typewriter
+              data-typewriter-on-view
+              data-typewriter-delay="100"
+              data-typewriter-speed="3"
+            >
               CATEC es un evento académico y tecnológico impulsado por estudiantes de la
               Escuela Profesional de Ingeniería de Sistemas de la Universidad Privada de Tacna.
               Una experiencia para aprender, compartir y acercarnos a las tecnologías que están
@@ -656,7 +660,7 @@
             </p>
           </div>
 
-          <div class="value-grid">
+          <div class="value-grid" data-reveal>
             <article class="value-card">
               <div class="card-icon" aria-hidden="true">⌁</div>
               <h3>Conocimiento aplicable</h3>
@@ -671,6 +675,14 @@
               <div class="card-icon" aria-hidden="true">◎</div>
               <h3>Comunidad tecnológica</h3>
               <p>Un espacio para encontrarnos, hacer preguntas y crear nuevas conexiones.</p>
+            </article>
+            <article class="value-card value-card-wide">
+              <div class="card-icon" aria-hidden="true">✦</div>
+              <h3>Un espacio abierto para todos</h3>
+              <p>
+                Estudiantes, profesionales, emprendedores y personas con curiosidad por la
+                tecnología pueden aprender, compartir ideas y construir nuevas conexiones.
+              </p>
             </article>
           </div>
         </div>
@@ -688,7 +700,27 @@
           </div>
 
           <div class="registrations-grid">
-            <article class="registration-card" aria-label="Seminario Internacional CATEC 2026-II" data-reveal>
+            <article class="registration-card" aria-label="Torneo de Dota 2" data-reveal>
+              <div class="registration-poster" data-registration-tilt>
+                <img
+                  src="./assets/images/banners/banner-evento-juego.png"
+                  width="990"
+                  height="1980"
+                  alt="Afiche del torneo de Dota 2"
+                  loading="lazy"
+                />
+              </div>
+              <div class="registration-actions">
+                <a class="button button-primary" href="https://forms.gle/WKdKK1pwLvao7BHT7" target="_blank" rel="noopener noreferrer">
+                  Inscripciones <span class="button-icon" aria-hidden="true">↗</span>
+                </a>
+                <a class="button registration-whatsapp" href="https://chat.whatsapp.com/I2Ak30D8N7d6KiZwlwUEWJ?s=qt&amp;p=a&amp;mlu=4" target="_blank" rel="noopener noreferrer">
+                  Grupo WhatsApp <span class="button-icon" aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </article>
+
+            <article class="registration-card" aria-label="Seminario Internacional CATEC 2026-II" data-reveal data-reveal-delay="90">
               <div class="registration-poster" data-registration-tilt>
                 <img
                   src="./assets/images/banners/CATEC_2BANNER CATEC_2026_II_Corregido.png"
@@ -702,13 +734,10 @@
                 <a class="button button-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSfhjd4A6q0OVqbRlk4yIl4yxkeoU6itNrdqezM-aAzAsQc5oA/viewform" target="_blank" rel="noopener noreferrer">
                   Inscripciones <span class="button-icon" aria-hidden="true">↗</span>
                 </a>
-                <a class="button registration-bases" href="./assets/images/banners/CATEC_2BANNER CATEC_2026_II_Corregido.pdf" target="_blank" rel="noopener noreferrer">
-                  Bases <span class="button-icon" aria-hidden="true">↗</span>
-                </a>
               </div>
             </article>
 
-            <article class="registration-card" aria-label="IX Programming Contest EPIS 2026-II" data-reveal data-reveal-delay="90">
+            <article class="registration-card" aria-label="IX Programming Contest EPIS 2026-II" data-reveal data-reveal-delay="180">
               <div class="registration-poster" data-registration-tilt>
                 <img
                   src="./assets/images/banners/BANNER_IX_PROGRAMMING_CONTEST_EPIS_2026_II.jpeg"
@@ -719,30 +748,10 @@
                 />
               </div>
               <div class="registration-actions">
-                <a class="button button-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSfhjd4A6q0OVqbRlk4yIl4yxkeoU6itNrdqezM-aAzAsQc5oA/viewform" target="_blank" rel="noopener noreferrer">
+                <a class="button button-primary" href="https://forms.gle/SzJVxdqrLuuxossT6" target="_blank" rel="noopener noreferrer">
                   Inscripciones <span class="button-icon" aria-hidden="true">↗</span>
                 </a>
-                <a class="button registration-bases" href="./assets/images/banners/BANNER_IX_PROGRAMMING_CONTEST_EPIS_2026_II_A4.pdf" target="_blank" rel="noopener noreferrer">
-                  Bases <span class="button-icon" aria-hidden="true">↗</span>
-                </a>
-              </div>
-            </article>
-
-            <article class="registration-card" aria-label="Torneo de Dota 2" data-reveal data-reveal-delay="180">
-              <div class="registration-poster" data-registration-tilt>
-                <img
-                  src="./assets/images/banners/banner-evento-juego.png"
-                  width="990"
-                  height="1980"
-                  alt="Afiche del torneo de Dota 2"
-                  loading="lazy"
-                />
-              </div>
-              <div class="registration-actions">
-                <a class="button button-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSfhjd4A6q0OVqbRlk4yIl4yxkeoU6itNrdqezM-aAzAsQc5oA/viewform" target="_blank" rel="noopener noreferrer">
-                  Inscripciones <span class="button-icon" aria-hidden="true">↗</span>
-                </a>
-                <a class="button registration-bases" href="./assets/images/banners/BANNER_EVENTO_JUEGO_2026_II.pdf" target="_blank" rel="noopener noreferrer">
+                <a class="button registration-bases" href="https://drive.google.com/file/d/1K5pheDZk9ZqQY1TVd8jrqVze05DO4R7g/view?usp=sharing" target="_blank" rel="noopener noreferrer">
                   Bases <span class="button-icon" aria-hidden="true">↗</span>
                 </a>
               </div>
@@ -751,7 +760,7 @@
         </div>
       </section>
 
-      <section id="agenda" class="section speakers" aria-labelledby="agenda-title">
+      <section id="agenda" class="section agenda" aria-labelledby="agenda-title">
         <div class="container">
           <div class="section-heading compact-heading agenda-heading">
             <p class="section-kicker">Agenda</p>
@@ -923,49 +932,6 @@
         </div>
       </section>
 
-      <section class="section audience" aria-labelledby="audience-title">
-        <div class="container">
-          <div class="section-heading audience-heading">
-            <p class="section-kicker">Para ti</p>
-            <h2 id="audience-title">Si la tecnología despierta tu curiosidad, este espacio es tuyo.</h2>
-            <p>
-              Una jornada abierta para aprender, compartir ideas y conectar con personas que
-              también quieren construir el futuro desde la tecnología.
-            </p>
-          </div>
-          <ul class="audience-list" data-reveal>
-            <li>
-              <span class="audience-icon" aria-hidden="true">⌁</span>
-              <div>
-                <h3>Estudiantes universitarios</h3>
-                <p>Conecta lo aprendido en el aula con experiencias y retos del mundo real.</p>
-              </div>
-            </li>
-            <li>
-              <span class="audience-icon" aria-hidden="true">⌘</span>
-              <div>
-                <h3>Profesionales de tecnología</h3>
-                <p>Comparte perspectivas y descubre nuevas formas de aplicar la tecnología.</p>
-              </div>
-            </li>
-            <li>
-              <span class="audience-icon" aria-hidden="true">✦</span>
-              <div>
-                <h3>Emprendedores e innovadores</h3>
-                <p>Encuentra ideas, referentes y conexiones para impulsar nuevos proyectos.</p>
-              </div>
-            </li>
-            <li>
-              <span class="audience-icon" aria-hidden="true">◎</span>
-              <div>
-                <h3>Comunidad interesada en aprender</h3>
-                <p>Acércate a la tecnología desde un espacio abierto, cercano y colaborativo.</p>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </section>
-
       <section id="ubicacion" class="section location" aria-labelledby="location-title">
         <div class="container">
           <div class="section-heading location-heading">
@@ -1122,108 +1088,52 @@
         </div>
       </section>
 
-      <section id="preguntas" class="section faq" aria-labelledby="faq-title">
-        <div class="container faq-layout">
-          <div class="faq-intro">
-            <p class="section-kicker">Preguntas</p>
-            <h2 id="faq-title">Lo esencial, sin rodeos.</h2>
-            <p>Actualizaremos estas respuestas conforme se confirme la información oficial.</p>
-          </div>
-          <div class="faq-list">
-            <details open>
-              <summary>¿Qué es CATEC?<span aria-hidden="true">+</span></summary>
-              <p>
-                Es un evento académico de capacitación tecnológica organizado por estudiantes de
-                Ingeniería de Sistemas de la Universidad Privada de Tacna.
-              </p>
-            </details>
-            <details>
-              <summary>¿Cuándo se realizará CATEC 2026-II?<span aria-hidden="true">+</span></summary>
-              <p>
-                CATEC 2026-II se realizará el 15 y 16 de septiembre: el Programming Contest
-                será el día 15 y la jornada de ponencias, el día 16.
-              </p>
-            </details>
-            <details>
-              <summary>¿Cómo podré inscribirme?<span aria-hidden="true">+</span></summary>
-              <p>
-                Habilitaremos aquí el enlace oficial de inscripción. No solicitaremos registros
-                desde enlaces que no hayan sido publicados en este sitio o en las redes oficiales.
-              </p>
-            </details>
-            <details>
-              <summary>¿Quiénes pueden participar?<span aria-hidden="true">+</span></summary>
-              <p>
-                CATEC está dirigido a estudiantes, profesionales y personas interesadas en
-                tecnología, innovación y emprendimiento.
-              </p>
-            </details>
-          </div>
-        </div>
-      </section>
-
-      <section id="novedades" class="section newsletter" aria-labelledby="newsletter-title">
-        <div class="container newsletter-card">
-          <div class="newsletter-signal" aria-hidden="true">
-            <span></span><span></span><span></span><span></span><span></span>
-          </div>
-          <div>
-            <p class="section-kicker">Mantente conectado</p>
-            <h2 id="newsletter-title">La siguiente señal llegará pronto.</h2>
-            <p>
-              En cuanto se habiliten los canales oficiales de CATEC 2026-II, encontrarás aquí
-              todas las novedades, anuncios e inscripciones.
-            </p>
-          </div>
-          <a class="button button-primary button-disabled" href="#inicio" aria-disabled="true">
-            Canales próximamente
-          </a>
-        </div>
-      </section>
     </main>
 
     <footer class="site-footer">
       <div class="container footer-top">
-        <div class="footer-brand">
-          <img src="./assets/images/brand/logo-catec.png" width="1114" height="1485" alt="Logotipo de CATEC" loading="lazy" />
-          <div>
-            <strong>CATEC 2026-II</strong>
-            <span>Conocimiento que conecta.</span>
-          </div>
-        </div>
-        <div class="footer-context">
-          <div class="footer-affiliation">
-            <img
-              src="./assets/images/brand/upt.png"
-              width="600"
-              height="600"
-              alt=""
-              aria-hidden="true"
-            />
-            <div>
-              <strong>Organizado por estudiantes de EPIS</strong>
-              <span>Universidad Privada de Tacna</span>
-            </div>
-          </div>
-          <p>Tacna, Perú</p>
-        </div>
+        <p class="footer-intro">Conocimiento que conecta.</p>
         <nav class="footer-links" aria-label="Enlaces del pie de página">
           <a href="#ponentes">Ponentes</a>
           <a href="#evento">El evento</a>
           <a href="#agenda">Agenda</a>
-          <a href="#preguntas">Preguntas</a>
         </nav>
       </div>
+
+      <p class="container footer-display-title" aria-label="CATEC 2026-II">CATEC 2026-II</p>
+
       <div class="container footer-bottom">
-        <p>© <span data-year>2026</span> CATEC EPIS UPT</p>
-        <p>Hecho por estudiantes.</p>
+        <img
+          class="footer-catec-mark"
+          src="./assets/images/brand/logo-catec.png"
+          width="1114"
+          height="1485"
+          alt="CATEC"
+          loading="lazy"
+        />
+        <div class="footer-signature">
+          <a
+            class="footer-github"
+            href="https://github.com/srg-cp/catec-epis"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Repositorio de CATEC en GitHub"
+            title="GitHub"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2C6.48 2 2 6.58 2 12.23c0 4.52 2.87 8.35 6.84 9.71.5.1.68-.22.68-.49v-1.92c-2.78.62-3.37-1.21-3.37-1.21-.45-1.18-1.11-1.49-1.11-1.49-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.9 1.56 2.35 1.11 2.92.85.09-.66.35-1.11.64-1.37-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05A9.35 9.35 0 0 1 12 6.94a9.3 9.3 0 0 1 2.5.35c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9v2.8c0 .27.18.59.69.49A10.23 10.23 0 0 0 22 12.23C22 6.58 17.52 2 12 2Z" />
+            </svg>
+          </a>
+          <div class="footer-affiliation">
+            <img src="./assets/images/brand/upt.png" width="600" height="600" alt="" aria-hidden="true" />
+            <span>Universidad Privada de Tacna</span>
+          </div>
+        </div>
       </div>
     </footer>
 
-    <script src="./js/modules/current-year.js" defer></script>
     <script src="./js/modules/header-scroll.js" defer></script>
     <script src="./js/modules/mobile-menu.js" defer></script>
-    <script src="./js/modules/faq.js" defer></script>
     <script src="./js/modules/sponsor-marquee.js" defer></script>
     <script src="./js/modules/speaker-story.js" defer></script>
     <script src="./js/modules/agenda-tabs.js" defer></script>

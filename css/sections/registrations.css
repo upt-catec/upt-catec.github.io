@@ -118,6 +118,17 @@
   background: #7868e8;
 }
 
+.registration-whatsapp {
+  border-color: transparent;
+  color: #052e24;
+  background: #55e6a5;
+}
+
+.registration-whatsapp:hover,
+.registration-whatsapp:focus-visible {
+  background: #78efb8;
+}
+
 @media (max-width: 980px) {
   .registrations-grid {
     position: static;

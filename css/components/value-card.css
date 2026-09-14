@@ -47,6 +47,20 @@
   line-height: 1.55;
 }
 
+.value-card-wide {
+  min-height: 170px;
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 64px minmax(220px, 0.7fr) minmax(280px, 1fr);
+  align-items: center;
+  gap: 32px;
+}
+
+.value-card-wide .card-icon,
+.value-card-wide h3 {
+  margin: 0;
+}
+
 @media (max-width: 980px) {
   .value-grid {
     grid-template-columns: 1fr;
@@ -72,5 +86,18 @@
 
   .card-icon {
     margin-bottom: 34px;
+  }
+
+  .value-card-wide {
+    display: flex;
+    min-height: 210px;
+  }
+
+  .value-card-wide .card-icon {
+    margin-bottom: 34px;
+  }
+
+  .value-card-wide h3 {
+    margin-bottom: 12px;
   }
 }
